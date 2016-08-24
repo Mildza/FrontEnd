@@ -36,7 +36,17 @@ header {
 
 .wrapper {
      width: 80%;
-     margin: 0 auto; }
+     height: 230px;
+     margin: 0 auto;
+     padding-left: 20%; }
+
+.wrapper2 {
+     width: 100%;
+     margin: 0 auto;
+     padding-left: 20%; }
+
+.col-md-12 .wrapper2 {
+     padding-left: 5%; }
 
 .col-xs-4 .wrapper {
      width: 100%;
@@ -66,6 +76,16 @@ pre {
      top: 20px;
      right: 20px; }
 
+#font-text-show {
+     display: none; }
+
+#naming-show {
+     display: none; }
+
+.blue {
+     color: blue;
+     cursor: pointer; }
+
 #return-to-top {
      position: fixed;
      bottom: 20px;
@@ -92,8 +112,13 @@ pre {
      bottom: 24px; }
 
 .wrapper-tuts {
-     width: 600px;
+     width: 650px;
      margin: auto auto; }
+
+footer {
+     height: 50px;
+     background-color: #3498db;
+     margin-top: 30px; }
 
 @media (max-width: 991px) {
      header {

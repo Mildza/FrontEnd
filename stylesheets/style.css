@@ -114,12 +114,17 @@ pre {
 }
 
 /* line 69, ../sass/style.scss */
+#naming-show {
+  display: none;
+}
+
+/* line 73, ../sass/style.scss */
 .blue {
   color: blue;
   cursor: pointer;
 }
 
-/* line 71, ../sass/style.scss */
+/* line 75, ../sass/style.scss */
 #return-to-top {
   position: fixed;
   bottom: 20px;
@@ -143,72 +148,79 @@ pre {
   z-index: 4;
 }
 
-/* line 94, ../sass/style.scss */
+/* line 98, ../sass/style.scss */
 #return-to-top:hover {
   bottom: 24px;
 }
 
-/* line 97, ../sass/style.scss */
+/* line 101, ../sass/style.scss */
 .wrapper-tuts {
-  width: 600px;
+  width: 650px;
   margin: auto auto;
 }
 
+/* line 103, ../sass/style.scss */
+footer {
+  height: 50px;
+  background-color: #3498db;
+  margin-top: 30px;
+}
+
 @media (max-width: 991px) {
-  /* line 101, ../sass/style.scss */
+  /* line 114, ../sass/style.scss */
   header {
     width: 80%;
   }
 
-  /* line 102, ../sass/style.scss */
+  /* line 115, ../sass/style.scss */
   .wrapper-tuts {
     width: 60%;
   }
 
-  /* line 103, ../sass/style.scss */
+  /* line 116, ../sass/style.scss */
   pre {
     width: 98%;
     padding: 5px;
   }
 }
 @media (max-width: 767px) {
-  /* line 107, ../sass/style.scss */
+  /* line 120, ../sass/style.scss */
   .wrapper {
     width: 100%;
   }
 
-  /* line 108, ../sass/style.scss */
+  /* line 121, ../sass/style.scss */
   .wrapper-tuts {
     width: 98%;
     padding: 5px 10px;
   }
 
-  /* line 109, ../sass/style.scss */
+  /* line 122, ../sass/style.scss */
   pre {
     width: 98%;
     padding: 5px;
   }
 
-  /* line 110, ../sass/style.scss */
+  /* line 123, ../sass/style.scss */
   header {
     width: 95%;
   }
-  /* line 111, ../sass/style.scss */
+  /* line 124, ../sass/style.scss */
   header h1 {
     font-size: 2.5em;
   }
-  /* line 112, ../sass/style.scss */
+  /* line 125, ../sass/style.scss */
   header p {
     font-size: 1.1em;
   }
 
-  /* line 114, ../sass/style.scss */
+  /* line 127, ../sass/style.scss */
   .home-picture {
     top: 10px;
     right: 10px;
   }
 
-  /* line 115, ../sass/style.scss */
+  /* line 128, ../sass/style.scss */
   #return-to-top {
     bottom: 10px;
     right: 10px;

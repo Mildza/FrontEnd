@@ -126,11 +126,12 @@ elem.style.display = ((elem.style.display!='block') ? 'block' : 'none');
 
       <div class="col-md-12 col-lg-6 center">
         <div class="center wrapper2">
-        <h3 class="blue" onclick="show('font-text-show')" >Font Size: px, em or rem?</h3>
+        <h4 class="blue" onclick="show('font-text-show')" >Font Size: px, em or rem?</h4>
         <div id="font-text-show">
         <p>PX - relative to the viewing device</p>
         <p>EM - Relative to the font-size of the element (2em means 2 times the size of the current font)</p>
         <p>REM - Relative to font-size of the root element</p>
+        <p>The best way is to use REM in main div and EM in sub divs</p>
         <pre>
 $default-font-size: 16;
 
@@ -155,8 +156,11 @@ $default-font-size: 16;
 
       <div class="col-md-12 col-lg-6 center">
         <div class="center wrapper2">
-        <h2>Naming Convention In CSS</h2>
+        <h4 class="blue" onclick="show('naming-show')">Naming Convention In CSS</h4>
+        <div id="naming-show">
+          Naming class's and functions must be well described using - separator to easy associate.
 
+          </div>
       </div>
   </div>
 
@@ -167,9 +171,11 @@ $default-font-size: 16;
 
 </div>
 
-</div>
 
 
+<footer>
+
+</footer>
 
 </div>
 

@@ -66,6 +66,10 @@ pre {
 #font-text-show {
   display:none;
 }
+#naming-show {
+  display:none;
+}
+
 .blue {color:blue; cursor: pointer;}
 
 #return-to-top {
@@ -94,7 +98,16 @@ pre {
 #return-to-top:hover {
    bottom: 24px;
 }
-.wrapper-tuts {width:600px;margin:auto auto;}
+.wrapper-tuts {width:650px;margin:auto auto;}
+
+footer {
+  height: 50px;
+  background-color: #3498db;
+  margin-top: 30px;
+}
+
+
+
 
 @media(max-width:991px){
 
