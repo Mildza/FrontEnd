@@ -1,4 +1,3 @@
-/* line 1, ../sass/_reset.scss */
 html, body {
   margin: 0;
   padding: 0;
@@ -7,39 +6,32 @@ html, body {
   background-color: white;
 }
 
-/* line 13, ../sass/style.scss */
 span {
   font-size: 24px;
 }
 
-/* line 16, ../sass/style.scss */
 a, a:hover {
   text-decoration: none;
 }
 
-/* line 17, ../sass/style.scss */
 header {
   width: 60%;
   margin: 20px auto;
 }
-/* line 21, ../sass/style.scss */
 header h1 {
   text-align: center;
   font-size: 3.75em;
   font-weight: 400;
 }
-/* line 22, ../sass/style.scss */
 header p {
   text-align: justify;
   font-size: 1.125em;
 }
 
-/* line 24, ../sass/style.scss */
 .justify {
   text-align: justify;
 }
 
-/* line 26, ../sass/style.scss */
 .p-header {
   margin: 0;
   padding: 0;
@@ -50,7 +42,6 @@ header p {
   border-radius: 5px;
 }
 
-/* line 29, ../sass/style.scss */
 .wrapper {
   width: 80%;
   height: 230px;
@@ -58,38 +49,32 @@ header p {
   padding-left: 20%;
 }
 
-/* line 38, ../sass/style.scss */
 .wrapper2 {
   width: 100%;
   margin: 0 auto;
   padding-left: 20%;
 }
 
-/* line 44, ../sass/style.scss */
 .col-md-12 .wrapper2 {
   padding-left: 5%;
 }
 
-/* line 46, ../sass/style.scss */
 .col-xs-4 .wrapper {
   width: 100%;
   padding-right: 0;
   padding-left: 0;
 }
 
-/* line 49, ../sass/style.scss */
 .picture {
   width: 18px;
   height: 18px;
   margin-right: 5px;
 }
 
-/* line 50, ../sass/style.scss */
 .margin {
   margin-top: 40px;
 }
 
-/* line 52, ../sass/style.scss */
 pre {
   font-family: Courier New;
   font-size: 1em;
@@ -101,30 +86,25 @@ pre {
   padding: 10px;
 }
 
-/* line 61, ../sass/style.scss */
 .home-picture {
   position: fixed;
   top: 20px;
   right: 20px;
 }
 
-/* line 66, ../sass/style.scss */
 #font-text-show {
   display: none;
 }
 
-/* line 69, ../sass/style.scss */
 #naming-show {
   display: none;
 }
 
-/* line 73, ../sass/style.scss */
 .blue {
   color: blue;
   cursor: pointer;
 }
 
-/* line 75, ../sass/style.scss */
 #return-to-top {
   position: fixed;
   bottom: 20px;
@@ -148,18 +128,15 @@ pre {
   z-index: 4;
 }
 
-/* line 98, ../sass/style.scss */
 #return-to-top:hover {
   bottom: 24px;
 }
 
-/* line 101, ../sass/style.scss */
 .wrapper-tuts {
   width: 650px;
   margin: auto auto;
 }
 
-/* line 103, ../sass/style.scss */
 footer {
   height: 50px;
   background-color: #3498db;
@@ -167,60 +144,49 @@ footer {
 }
 
 @media (max-width: 991px) {
-  /* line 114, ../sass/style.scss */
   header {
     width: 80%;
   }
 
-  /* line 115, ../sass/style.scss */
   .wrapper-tuts {
     width: 60%;
   }
 
-  /* line 116, ../sass/style.scss */
   pre {
     width: 98%;
     padding: 5px;
   }
 }
 @media (max-width: 767px) {
-  /* line 120, ../sass/style.scss */
   .wrapper {
     width: 100%;
   }
 
-  /* line 121, ../sass/style.scss */
   .wrapper-tuts {
     width: 98%;
     padding: 5px 10px;
   }
 
-  /* line 122, ../sass/style.scss */
   pre {
     width: 98%;
     padding: 5px;
   }
 
-  /* line 123, ../sass/style.scss */
   header {
     width: 95%;
   }
-  /* line 124, ../sass/style.scss */
   header h1 {
     font-size: 2.5em;
   }
-  /* line 125, ../sass/style.scss */
   header p {
     font-size: 1.1em;
   }
 
-  /* line 127, ../sass/style.scss */
   .home-picture {
     top: 10px;
     right: 10px;
   }
 
-  /* line 128, ../sass/style.scss */
   #return-to-top {
     bottom: 10px;
     right: 10px;

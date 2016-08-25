@@ -24,12 +24,104 @@
     <a class="home-picture" href="../index.html"><img src="../images/home2.png" alt="Home"></a>
   <h1>SUSY</h1>
   <h3>Install Susy</h3>
-  <pre>gem install susy</pre>
+  <pre>
+  gem install susy</pre>
+  <p>make config.rb file</p>
+  <pre>
+  require "susy"
 
+  project_type = :stand_alone
+  http_path = "/"
+  sass_dir = "sass"
+  css_dir = "stylesheets"
+  images_dir = "img"
+  fonts_dir = "fonts"
+  javascripts_dir = "js"
+  line_comments = false
+  preferred_syntax = :scss
+  output_style = :expanded
+  relative_assets = true</pre>
+  <p>Import susy at the begining of .scss file</p>
+  <pre>
+  @import "susy";</pre>
+  <p>Make fluid container in .scss</p><pre>
+  body {
+  @include container(80%);
+  }</pre>
+  <p>Make column that will be half size of content</p>
+  <pre>
+  main{
+    @include span(6 of 12);
+  }</pre>
+  <p>The same will be</p>
+  <pre>
+  main{
+    @include span(8 of 16);
+  }</pre>
+    <p>Making 2 columns</p>
+  <pre>
+  main{
+    @include span(8 of 12);
+  }
+  asside{
+    @include span(4 at 9 of 12);
+  }</pre>
+  <p>Maps:key->value pair</p>
+  <pre>
+  $susy: (
+      columns: 12,
+      gutters: 1/4,
+      math: fluid,
+      output: float,
+      gutter-position: inside,
+  );
+  </pre>
+  <p>Layout</p>
+  <pre>
+  $widelayout: (
+      columns: 24,
+      gutters: 1/4,
+      math: fluid,
+      output: float,
+      gutter-position: inside,
+  );
+
+  @include layout($widelayout);</pre>
+  <p>Layout shorthand</p>
+  <pre>
+  @include layout(24 1/4 fluid float inside);
+  );
+  or
+  main{
+    @include span(8 at 0 of 24 1/8);
+  }
+  asside{
+    @include span(4 at 9);
+  }</pre>
+  <p>Breakpoint install</p>
+  <pre>
+  gem install breakpoint</pre>
+  <p>In config.rb add requirements</p><pre>
+  require "susy"
+  require "breakpoint"</pre>
+  <p>Import susy at the begining of .scss file</p>
+  <pre>
+  @import "susy";
+  @import "breakpoint";</pre>
+  <p>Use breakpoint, mobile first</p>
+  <pre>
+  @include breakpoint(500px){
+    main{
+      @include span(8 of 12);
+    }
+    asside{
+      @include span(4 at 9 of 12);
+    }
+  }</pre>
 <br>
 <br>
     | <a href="http://susy.oddbird.net/">Basic</a> |
-    
+
 
 </div>
   </body>
