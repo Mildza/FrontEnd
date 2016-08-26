@@ -118,10 +118,39 @@
       @include span(4 at 9 of 12);
     }
   }</pre>
+  <p>Use 3 columns inside main column</p>
+  <pre>
+  @include breakpoint(1200px){
+    @include layout(24);
+    main{
+      @include span(21);
+      .col1, .col2, .col3 {
+        @include span(4 of 12)
+      }
+    }
+    asside{
+      @include span(3);
+    }
+  }</pre>
+  <p>Use variables and mixins</p>
+  <pre>
+  $small:500px;
+  @include susy-breakpoint($small,24){
+    main{
+      @include span(21);
+      .col1, .col2, .col3 {
+        @include span(4 of 12)
+      }
+    }
+    asside{
+      @include span(3);
+    }
+  }</pre>
 <br>
-<br>
-    | <a href="http://susy.oddbird.net/">Basic</a> |
-
+    <div class="footer-tuts">
+    | <a href="http://susy.oddbird.net/" target="_blank">Basic</a>
+    | <a href="https://www.youtube.com/watch?v=KYpqPZCzbwA" target="_blank"><img class="icons" src="../images/youtube.png" alt="youtube" /></a> |
+  </div>
 
 </div>
   </body>
