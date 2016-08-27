@@ -1,40 +1,22 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-size: 100%;
   font-family: 'Open Sans', sans-serif;
   background-color: white;
 }
 
-span {
-  font-size: 24px;
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/fontawesome-webfont.eot?v=4.6.3");
+  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
-
-a, a:hover {
-  text-decoration: none;
-}
-
-.icons {
-  height: 18px;
-  vertical-align: bottom;
-}
-
-header {
-  width: 60%;
-  margin: 20px auto;
-}
-header h1 {
-  text-align: center;
-  font-size: 3.75em;
-  font-weight: 400;
-}
-header p {
-  text-align: justify;
-  font-size: 1.125em;
-}
-
-.justify {
-  text-align: justify;
+.wrapper-tuts {
+  width: 650px;
+  margin: auto auto;
 }
 
 .p-header {
@@ -47,37 +29,9 @@ header p {
   border-radius: 5px;
 }
 
-.wrapper {
-  width: 80%;
-  height: 230px;
-  margin: 0 auto;
-  padding-left: 20%;
-}
-
-.wrapper2 {
-  width: 100%;
-  margin: 0 auto;
-  padding-left: 20%;
-}
-
-.col-md-12 .wrapper2 {
-  padding-left: 5%;
-}
-
-.col-xs-4 .wrapper {
-  width: 100%;
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.picture {
-  width: 18px;
-  height: 18px;
-  margin-right: 5px;
-}
-
-.margin {
-  margin-top: 40px;
+.blue {
+  color: blue;
+  cursor: pointer;
 }
 
 pre {
@@ -89,12 +43,23 @@ pre {
   border-radius: 10px;
   background-color: #DEDEDE;
   padding: 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  white-space: pre\9;
 }
 
 .home-picture {
   position: fixed;
   top: 20px;
   right: 20px;
+}
+
+.icons {
+  height: 18px;
+  vertical-align: bottom;
 }
 
 #font-text-show {
@@ -105,25 +70,15 @@ pre {
   display: none;
 }
 
-.blue {
-  color: blue;
-  cursor: pointer;
-}
-
 #return-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  /*background: rgb(255, 255, 255);
-  background: rgba(255, 255, 255, 0.7);*/
   width: 50px;
   height: 50px;
   background-image: url(../images/up.png);
   display: block;
   text-decoration: none;
-  /* -webkit-border-radius: 35px;
-   -moz-border-radius: 35px;
-   border-radius: 35px;*/
   display: none;
   -webkit-transition: all 0.3s linear;
   -moz-transition: all 0.3s ease;
@@ -137,19 +92,68 @@ pre {
   bottom: 24px;
 }
 
-.wrapper-tuts {
-  width: 650px;
-  margin: auto auto;
+.footer-tuts {
+  margin-bottom: 20px;
+}
+
+.relative {
+  min-height: 100%;
+  position: relative;
+}
+
+header {
+  width: 60%;
+  margin: 20px auto;
+}
+header h1 {
+  text-align: center;
+  font-size: 3.75em;
+  font-weight: 400;
+}
+header p {
+  font-size: 1.125em;
+  text-align: justify;
+}
+
+.margin {
+  margin-top: 50px;
+}
+
+.wrapper {
+  width: 80%;
+  min-height: 240px;
+  margin: 0 auto;
+  padding-left: 20%;
+}
+
+.atom {
+  height: 330px;
+}
+
+.picture {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
 }
 
 footer {
-  height: 50px;
+  width: 100%;
+  height: 60px;
   background-color: #3498db;
-  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-.footer-tuts {
-  margin-bottom: 20px;
+.footer-icons {
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'FontAwesome';
+  font-size: 3em;
+  color: white;
+}
+.footer-icons a:link, .footer-icons a:visited, .footer-icons a:hover, .footer-icons a:active {
+  color: white;
 }
 
 @media (max-width: 991px) {
@@ -169,6 +173,9 @@ footer {
 @media (max-width: 767px) {
   .wrapper {
     width: 100%;
+  }
+  .wrapper h2 {
+    font-size: 1.7em;
   }
 
   .wrapper-tuts {

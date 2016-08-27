@@ -16,30 +16,26 @@
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
     <title>Info</title>
 
-<script>
-function show (id) {
-var elem = document.getElementById(id);
-elem.style.display = ((elem.style.display!='block') ? 'block' : 'none');
-}
 
-</script>
 
 </head>
 
 <body>
+  <div class="relative">
+
   <div class="container">
     <header>
-      <h1>FrontEnd</h1>
-      <p class="justify">Frontend technologies and tools that are used in development process. Best Bookmarklet, Browser Addons and quick tutorials.  </p>
+      <h1 >FrontEnd</h1>
+      <p>Frontend technologies and tools that are used in development process. Best Bookmarklet, Browser Addons and quick tutorials.  </p>
     </header>
   </div>
 <div class="container-fluid margin">
   <div class="row">
     <div class="col-xs-6 col-md-3">
-      <img  class="img-responsive center-block" src="images/html-css.png" alt="html-css">
+      <a href="tutorials/html-css.html"><img  class="img-responsive center-block" src="images/html-css.png" alt="html-css"></a>
     </div>
     <div class="col-xs-6 col-md-3">
       <a href="tutorials/sass.html"><img class="img-responsive center-block"  src="images/sass.png" alt="Sass" title="Sass" ></a>
@@ -65,6 +61,7 @@ elem.style.display = ((elem.style.display!='block') ? 'block' : 'none');
       <img class="img-responsive center-block"  src="images/atom.png" alt="Atom" title="Atom">
     </div>
   </div>
+<div class="clearfix visible-xs-block"></div>
 
 <div class="row margin">
 
@@ -98,7 +95,7 @@ elem.style.display = ((elem.style.display!='block') ? 'block' : 'none');
 </div>
 
 <div class="col-xs-6 col-md-3 center">
-  <div class="center wrapper">
+  <div class="center wrapper atom">
   <h2>Atom Package</h2>
   <p><img class="picture" src="images/atoms.png"><a href="https://atom.io/packages/pigments" target="_blank">Pigments</a></p>
   <p><img class="picture" src="images/atoms.png"><a href="https://atom.io/packages/sass-autocompile" target="_blank">Sass Autocompile</a></p>
@@ -110,63 +107,16 @@ elem.style.display = ((elem.style.display!='block') ? 'block' : 'none');
 </div>
 
   </div>
-
-  <div class="row margin">
-
-      <div class="col-md-12 col-lg-6 center">
-        <div class="center wrapper2">
-        <h4 class="blue" onclick="show('font-text-show')" >Font Size: px, em or rem?</h4>
-        <div id="font-text-show">
-        <p>PX - relative to the viewing device</p>
-        <p>EM - Relative to the font-size of the element (2em means 2 times the size of the current font)</p>
-        <p>REM - Relative to font-size of the root element</p>
-        <p>The best way is to use REM in main div and EM in sub divs</p>
-        <pre>
-$default-font-size: 16;
-
-@function px2em($size-in-px, $base-size:$default-font-size) {
-  @return ($size-in-px/$base-size) + em;
-}
-@function px2rem($size-in-px) {
-  @return ($size-in-px/$default-font-size) + rem;
-</pre>
-<p class="p-header">.scss</p>
-<pre>
-  p {font-size: px2em(16);}
-</pre>
-<p class="p-header">.css</p>
-<pre>
-  p {font-size: 1em; }
-</pre>
-       </div>
-    </div>
-  </div>
-
-
-      <div class="col-md-12 col-lg-6 center">
-        <div class="center wrapper2">
-        <h4 class="blue" onclick="show('naming-show')">Naming Convention In CSS</h4>
-        <div id="naming-show">
-          Naming class's and functions must be well described using dash "-" separator to easy associate.
-
-          </div>
-      </div>
-  </div>
-
-
-    </div>
-
-
-
-</div>
-
-
-
+<div class="clearfix visible-xs-block"></div>
 <footer>
+  <div class="footer-icons">
+  <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+</div>
 
 </footer>
 
 </div>
-
+</div>
   </body>
 </html>
