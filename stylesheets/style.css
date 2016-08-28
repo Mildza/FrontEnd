@@ -52,7 +52,7 @@ pre {
 }
 
 .home-picture {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
 }
@@ -115,8 +115,16 @@ header p {
   text-align: justify;
 }
 
+.tools-margin {
+  margin-bottom: 20px;
+}
+
 .margin {
-  margin-top: 50px;
+  margin-top: 30px;
+}
+
+.bookmarks {
+  padding: 20px;
 }
 
 .wrapper {
@@ -161,6 +169,10 @@ footer {
     width: 80%;
   }
 
+  .margin-small {
+    margin-bottom: -80px;
+  }
+
   .wrapper-tuts {
     width: 60%;
   }
@@ -171,15 +183,24 @@ footer {
   }
 }
 @media (max-width: 767px) {
+  .margin {
+    margin-top: 5px;
+  }
+
   .wrapper {
-    width: 100%;
+    width: 95%;
+    padding-left: 5px;
   }
   .wrapper h2 {
     font-size: 1.7em;
   }
 
+  .margin-small {
+    margin-bottom: -60px;
+  }
+
   .wrapper-tuts {
-    width: 98%;
+    width: 94%;
     padding: 5px 10px;
   }
 
@@ -200,11 +221,11 @@ footer {
 
   .home-picture {
     top: 10px;
-    right: 10px;
+    right: 1px;
   }
 
   #return-to-top {
     bottom: 10px;
-    right: 10px;
+    right: 1px;
   }
 }
