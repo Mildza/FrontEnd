@@ -5,10 +5,12 @@
 @import 'tutorials';
 
 .relative {min-height:100%;position:relative;}
+ p {font-size: px2em(16)}
 
 header {
   width:60%;
   margin: 20px auto;
+
     h1 {text-align: center;font-size: px2em(60);font-weight: 400;}
     p {font-size: px2em(18);text-align: justify;}
 }
@@ -26,6 +28,7 @@ header {
   margin: 0 auto;
   padding-left: 20%;
 }
+.referencing {height:240px;}
 .atom {height: 330px;}
 
 .picture {width:18px; height:18px;margin-right: 5px;}
@@ -53,7 +56,7 @@ footer {
 
 @media(max-width:991px){
   header {width:80%;}
-  .margin-small {margin-bottom: -80px;}
+  .margin-small {margin-bottom: -60px;}
   .wrapper-tuts {width:60%;}
   pre {width:98%; padding: 5px;}
 }
@@ -63,9 +66,11 @@ footer {
   .wrapper {
     width:95%;
     padding-left: 5px;
-      h2{font-size:1.7em;}
+      h2{font-size:1.2em;}
   }
   .margin-small {margin-bottom: -60px;}
+  .atom {height: 380px;}
+
   .wrapper-tuts {width:94%; padding: 5px 10px;}
   pre {width:98%; padding: 5px;}
   header {width:95%;
