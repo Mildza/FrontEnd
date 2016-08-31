@@ -97,54 +97,72 @@ pre {
   margin-bottom: 20px;
 }
 
-.relative {
-  min-height: 100%;
-  position: relative;
-}
-
 p {
   font-size: 1em;
 }
 
+/*
 header {
-  width: 60%;
+  width:60%;
+  height: 100px;
+  background-color: #3498db;
+  margin: auto;
+  @include border-radius(0px 0px 10px 10px);
+  h1 {margin-top:0;
+    padding-top: 25px;
+    color:white;
+    text-align: center;
+    }
+}
+*/
+#banner {
+  height: 222px;
+  margin: 0px auto;
+  background-color: #282C34;
+  background-image: url(../images/psd.png), url(../images/wordpress.png);
+  background-position: 0px 40px, 30% 40px;
+  background-repeat: no-repeat, no-repeat;
+  animation: animate-background linear 9s infinite;
+}
+
+@keyframes animate-background {
+  from {
+    background-position: 0px 40px, 30% 40px;
+  }
+  to {
+    background-position: 50% 40px, 110% 40px;
+  }
+}
+.frontend {
+  width: 50%;
   margin: 20px auto;
 }
-header h1 {
+.frontend h1 {
   text-align: center;
   font-size: 3.75em;
   font-weight: 400;
 }
-header p {
+.frontend p {
   font-size: 1.125em;
   text-align: justify;
 }
 
-.tools-margin {
-  margin-bottom: 20px;
-}
-
-.margin {
+.main {
+  width: 60%;
   margin-top: 30px;
 }
 
+.tools {
+  margin-bottom: 20px;
+}
+
 .bookmarks {
-  padding: 20px;
+  padding: 5px;
 }
 
 .wrapper {
-  width: 80%;
-  min-height: 240px;
+  width: 98%;
   margin: 0 auto;
-  padding-left: 20%;
-}
-
-.referencing {
-  height: 240px;
-}
-
-.atom {
-  height: 330px;
 }
 
 .picture {
@@ -153,33 +171,55 @@ header p {
   margin-right: 5px;
 }
 
-footer {
+#myCarousel {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 70%;
+  margin: auto;
+}
+
+.footer {
   width: 100%;
-  height: 60px;
-  background-color: #3498db;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  color: white;
+  background-color: #7f8c8d;
+}
+.footer h2 {
+  font-size: 1.3em;
+}
+.footer a:link, .footer a:visited, .footer a:hover, .footer a:active {
+  color: white;
+  font-size: 0.8em;
 }
 
 .footer-icons {
   text-align: center;
   vertical-align: middle;
   font-family: 'FontAwesome';
-  font-size: 3em;
+  font-size: 4em;
   color: white;
+  margin: -20px 0px;
 }
 .footer-icons a:link, .footer-icons a:visited, .footer-icons a:hover, .footer-icons a:active {
   color: white;
 }
 
+.bookmarks {
+  margin: 0px;
+  padding: 0px;
+}
+
 @media (max-width: 991px) {
   header {
-    width: 80%;
+    width: 100%;
   }
 
-  .margin-small {
-    margin-bottom: -60px;
+  .frontend {
+    width: 80%;
   }
 
   .wrapper-tuts {
@@ -190,8 +230,16 @@ footer {
     width: 98%;
     padding: 5px;
   }
+
+  #myCarousel {
+    width: 100%;
+  }
 }
 @media (max-width: 767px) {
+  header {
+    width: 100%;
+  }
+
   .margin {
     margin-top: 5px;
   }
@@ -204,12 +252,12 @@ footer {
     font-size: 1.2em;
   }
 
-  .margin-small {
-    margin-bottom: -60px;
+  .main {
+    width: 80%;
   }
 
-  .atom {
-    height: 380px;
+  #myCarousel {
+    width: 100%;
   }
 
   .wrapper-tuts {
@@ -222,13 +270,13 @@ footer {
     padding: 5px;
   }
 
-  header {
+  .frontend {
     width: 95%;
   }
-  header h1 {
+  .frontend h1 {
     font-size: 2.5em;
   }
-  header p {
+  .frontend p {
     font-size: 1.1em;
   }
 
