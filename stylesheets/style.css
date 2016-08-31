@@ -3,9 +3,9 @@ html, body {
   padding: 0;
   height: 100%;
   font-size: 100%;
-  color: #666;
+  color: white;
   font-family: 'Open Sans', sans-serif;
-  background-color: white;
+  background-color: #282C34;
 }
 
 @font-face {
@@ -42,6 +42,7 @@ pre {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   border-radius: 10px;
+  color: #282C34;
   background-color: #DEDEDE;
   padding: 10px;
   word-break: break-all;
@@ -120,22 +121,26 @@ header {
   margin: 0px auto;
   background-color: #282C34;
   background-image: url(../images/psd.png), url(../images/wordpress.png);
-  background-position: 0px 40px, 30% 40px;
+  background-position: 0px 40px, 31% 40px;
   background-repeat: no-repeat, no-repeat;
   animation: animate-background linear 9s infinite;
 }
 
 @keyframes animate-background {
   from {
-    background-position: 0px 40px, 30% 40px;
+    background-position: 0px 40px, 31% 40px;
   }
   to {
     background-position: 50% 40px, 110% 40px;
   }
 }
+#banner img {
+  margin: 0px 0px 0px 28%;
+}
+
 .frontend {
   width: 50%;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 .frontend h1 {
   text-align: center;
@@ -148,12 +153,18 @@ header {
 }
 
 .main {
-  width: 60%;
+  width: 100%;
   margin-top: 30px;
+}
+.main img {
+  opacity: 0.7;
+}
+.main img:hover {
+  opacity: 1.0;
 }
 
 .tools {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .bookmarks {
@@ -172,7 +183,7 @@ header {
 }
 
 #myCarousel {
-  width: 80%;
+  width: 40%;
   margin: auto;
   margin-bottom: 30px;
 }
@@ -186,7 +197,8 @@ header {
 .footer {
   width: 100%;
   color: white;
-  background-color: #7f8c8d;
+  background-color: #282C34;
+  font-weight: 300;
 }
 .footer h2 {
   font-size: 1.3em;
@@ -213,6 +225,23 @@ header {
   padding: 0px;
 }
 
+@media (max-width: 1336px) {
+  #banner {
+    text-align: center;
+  }
+  #banner img {
+    margin: 0;
+  }
+
+  @keyframes animate-background {
+    from {
+      background-position: -300px -300px, -300px -300px;
+    }
+    to {
+      background-position: -300px -300px, -300px -300px;
+    }
+  }
+}
 @media (max-width: 991px) {
   header {
     width: 100%;
@@ -236,6 +265,14 @@ header {
   }
 }
 @media (max-width: 767px) {
+  #banner {
+    height: auto;
+  }
+
+  #banner img {
+    width: 100%;
+  }
+
   header {
     width: 100%;
   }
@@ -257,7 +294,7 @@ header {
   }
 
   #myCarousel {
-    width: 100%;
+    display: none;
   }
 
   .wrapper-tuts {
