@@ -5,8 +5,11 @@ html, body {
   color: white;
   font-family: 'Open Sans', sans-serif;
   background-color: #282C34;
+<<<<<<< HEAD
   background-image: url(../images/congruent_outline.png);
   background-repeat: repeat;
+=======
+>>>>>>> d2daff356aefbafeeff890bfce6ea39d679345d2
 }
 
 @font-face {
@@ -146,6 +149,7 @@ header {
     }
 }
 */
+<<<<<<< HEAD
 /*
 #banner{
 
@@ -156,9 +160,21 @@ header {
 	background-position: 0px 40px, 31% 40px;
 	background-repeat: no-repeat, no-repeat, repeat;
 	animation: animate-background linear 9s infinite;
+=======
+#banner {
+  height: 222px;
+  margin: 0px auto;
+  background-color: #282C34;
+  background-image: url(../images/psd.png), url(../images/wordpress.png);
+  background-position: 0px 40px, 31% 40px;
+  background-repeat: no-repeat, no-repeat;
+  animation: animate-background linear 9s infinite;
+}
+>>>>>>> d2daff356aefbafeeff890bfce6ea39d679345d2
 
 }
 @keyframes animate-background {
+<<<<<<< HEAD
 	from { background-position: 0px 40px, 31% 40px, 120% 120%;  }
 	to { background-position: 50% 40px, 110% 40px, 0px 0px; }
 }
@@ -167,6 +183,19 @@ header {
   margin: 0px 0px 0px 28%;
 }
 */
+=======
+  from {
+    background-position: 0px 40px, 31% 40px;
+  }
+  to {
+    background-position: 50% 40px, 110% 40px;
+  }
+}
+#banner img {
+  margin: 0px 0px 0px 28%;
+}
+
+>>>>>>> d2daff356aefbafeeff890bfce6ea39d679345d2
 .frontend {
   width: 50%;
   margin: 10px auto;
@@ -183,7 +212,17 @@ header {
 
 .main {
   width: 100%;
+<<<<<<< HEAD
   margin-top: 90px;
+}
+.main img {
+  opacity: 0.7;
+}
+.main img:hover {
+  opacity: 1.0;
+=======
+  margin-top: 30px;
+>>>>>>> d2daff356aefbafeeff890bfce6ea39d679345d2
 }
 .main img {
   opacity: 0.7;
@@ -206,8 +245,27 @@ header {
   margin-right: 5px;
 }
 
+<<<<<<< HEAD
+=======
+#myCarousel {
+  width: 40%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 70%;
+  margin: auto;
+}
+
+>>>>>>> d2daff356aefbafeeff890bfce6ea39d679345d2
 .footer {
   color: white;
+<<<<<<< HEAD
+=======
+  background-color: #282C34;
+>>>>>>> d2daff356aefbafeeff890bfce6ea39d679345d2
   font-weight: 300;
 }
 .footer h2 {
@@ -235,6 +293,7 @@ header {
   padding: 0px;
 }
 
+<<<<<<< HEAD
 /*
 @media(max-width:1336px){
   #banner {
@@ -250,6 +309,25 @@ header {
 }
 }
 */
+=======
+@media (max-width: 1336px) {
+  #banner {
+    text-align: center;
+  }
+  #banner img {
+    margin: 0;
+  }
+
+  @keyframes animate-background {
+    from {
+      background-position: -300px -300px, -300px -300px;
+    }
+    to {
+      background-position: -300px -300px, -300px -300px;
+    }
+  }
+}
+>>>>>>> d2daff356aefbafeeff890bfce6ea39d679345d2
 @media (max-width: 991px) {
   header {
     width: 100%;
@@ -269,6 +347,14 @@ header {
   }
 }
 @media (max-width: 767px) {
+  #banner {
+    height: auto;
+  }
+
+  #banner img {
+    width: 100%;
+  }
+
   header {
     width: 100%;
   }
@@ -289,6 +375,13 @@ header {
     width: 80%;
   }
 
+<<<<<<< HEAD
+=======
+  #myCarousel {
+    display: none;
+  }
+
+>>>>>>> d2daff356aefbafeeff890bfce6ea39d679345d2
   .wrapper-tuts {
     width: 94%;
     padding: 5px 10px;
