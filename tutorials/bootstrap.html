@@ -35,14 +35,23 @@
     <h3>Emphasis</h3>
     <p>Class lead will give larger font size, lighter weight and a taller line height.</p>
 <pre>&lt;p class="lead"&gt; ... &lt;/p&gt;</pre>
-    <p>Small tag set text at 85% the size of the parent</p>
+    <p>Small tag <small>set text at 85% </small>the size of the parent</p>
     <pre>&lt;small>some text&lt;/small&gt;</pre>
-    <p>Strong tag is rendered as bold text</p>
+    <p>Strong tag is <strong>rendered as bold</strong> text</p>
     <pre>&lt;strong>some text&lt;/strong&gt;</pre>
-    <p>Em tag is rendered as italic text</p>
+    <p>Em tag is <em>rendered as italic</em> text</p>
     <pre>&lt;em>some text&lt;/em></pre>
-    <p>U tag is rendered as underline text</p>
-    <pre>&lt;u>some text&lt;/u&gt;</pre>
+    <h3>Inline text elements</h3>
+    <p>Marked text - For highlighting a run of text due to its relevance in another context, use the <mark>&lt;mark&gt;</mark>tag.</p>
+    <pre>You can use the mark tag to &lt;mark&gt;highlight&lt;/mark&gt; text.</pre>
+    <p>Deleted text - For indicating blocks of text that have been deleted use the <del>&lt;del&gt;</del> tag.</p>
+    <pre>&lt;del&gt;This line of text is meant to be treated as deleted text.&lt;/del&gt;</pre>
+    <p>Strikethrough text - For indicating blocks of text that are no longer relevant use the <s>&lt;s&gt;</s>tag.</p>
+    <pre>&lt;s&gt;This line of text is meant to be treated as no longer accurate.&lt;/s&gt;</pre>
+    <p>Inserted text - For indicating additions to the document use the <ins>&lt;ins&gt;</ins> tag.</p>
+    <pre>&lt;ins&gt;This line of text is meant to be treated as an addition to the document.&lt;/ins&gt;</pre>
+    <p>Underlined text - To underline text use the <u>&lt;u&gt;</u> tag.</p>
+    <pre>&lt;u&gt;This line of text will render as underlined.&lt;/u&gt;</pre>
     <h3>Alignment class</h3>
     <p>Align text to left</p>
     <pre>class="text-left"</pre>
@@ -50,6 +59,10 @@
     <pre>class="text-center"</pre>
     <p>Align text to right</p>
     <pre>class="text-right"</pre>
+    <p>Justified text</p>
+    <pre>class="text-justify"</pre>
+    <p>No wrap text</p>
+    <pre>class="text-nowrap"</pre>
     <h3>Transformation Classes</h3>
     <p>Lowercased text</p>
     <pre>&lt;p class="text-lowercase">Some Text&lt;/p&gt;</pre>
@@ -74,6 +87,18 @@
     <p>Visible at xs but hidden at sm, md and lg</p>
     <h3>Class .hidden-xs-*</h3>
     <p>Hidden at xs but visible at sm, md and lg</p>
+    <h3>Responsive Column Resets</h3>
+    <p>At certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a .clearfix and our responsive utility classes.</p>
+    <pre>&lt;div class="clearfix visible-xs-block"/div&gt;</pre>
+    <h3>Offseting Columns</h3>
+    <p>Move columns to the right using .col-md-offset-* classes. These classes increase the left margin of a column by * columns. For example, .col-md-offset-4 moves .col-md-4 over four columns.</p>
+    <pre>&lt;class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4 &lt;/div&gt;</pre>
+    <h3>Column ordering</h3>
+    <p>Easily change the order of our built-in grid columns with .col-md-push-* and .col-md-pull-* modifier classes.</p>
+    <pre>&lt;class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3 &lt;/div&gt;
+&lt;class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9 &lt;/div&gt;</pre>
+    <h3>Nesting columns</h3>
+    <p>To nest your content with the default grid, add a new .row and set of .col-sm-* columns within an existing .col-sm-* column. Nested rows should include a set of columns that add up to 12 or fewer (it is not required that you use all 12 available columns).</p>
     <h3>Floats</h3>
     <p>Float left or rgiht</p>
     <pre>&lt;div class="pull-left"&gt;...&lt;/div&gt;</pre>

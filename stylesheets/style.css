@@ -235,6 +235,11 @@ header {
   padding: 0px;
 }
 
+.book {
+  padding-left: 5em;
+  padding-right: 3.75em;
+}
+
 /*
 @media(max-width:1336px){
   #banner {
