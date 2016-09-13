@@ -1,11 +1,12 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
   font-size: 100%;
-  color: #666;
+  color: white;
   font-family: 'Open Sans', sans-serif;
-  background-color: white;
+  background-color: #282C34;
+  background-image: url(../images/congruent_outline.png);
+  background-repeat: repeat;
 }
 
 @font-face {
@@ -18,6 +19,35 @@ html, body {
 .wrapper-tuts {
   width: 650px;
   margin: auto auto;
+}
+
+.pre-str {
+  color: #27ae60;
+}
+
+.pre-elem {
+  color: #3498db;
+}
+
+.pre-com {
+  color: #7f8c8d;
+}
+
+.pre-p {
+  color: #c0392b;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: #3498db;
+  text-decoration: none;
+}
+
+h1 {
+  color: #ecf0f1;
+}
+
+h3 {
+  color: #f1c40f;
 }
 
 .p-header {
@@ -42,6 +72,7 @@ pre {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   border-radius: 10px;
+  color: #282C34;
   background-color: #DEDEDE;
   padding: 10px;
   word-break: break-all;
@@ -115,27 +146,30 @@ header {
     }
 }
 */
-#banner {
-  height: 222px;
-  margin: 0px auto;
-  background-color: #282C34;
-  background-image: url(../images/psd.png), url(../images/wordpress.png);
-  background-position: 0px 40px, 30% 40px;
-  background-repeat: no-repeat, no-repeat;
-  animation: animate-background linear 9s infinite;
+/*
+#banner{
+
+	height: 222px;
+	margin: 0px auto;
+	background-color: #282C34;
+	background-image: url(../images/psd.png), url(../images/wordpress.png), url(../images/binding_dark.png);
+	background-position: 0px 40px, 31% 40px;
+	background-repeat: no-repeat, no-repeat, repeat;
+	animation: animate-background linear 9s infinite;
+
+}
+@keyframes animate-background {
+	from { background-position: 0px 40px, 31% 40px, 120% 120%;  }
+	to { background-position: 50% 40px, 110% 40px, 0px 0px; }
 }
 
-@keyframes animate-background {
-  from {
-    background-position: 0px 40px, 30% 40px;
-  }
-  to {
-    background-position: 50% 40px, 110% 40px;
-  }
+#banner img {
+  margin: 0px 0px 0px 28%;
 }
+*/
 .frontend {
   width: 50%;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 .frontend h1 {
   text-align: center;
@@ -148,21 +182,22 @@ header {
 }
 
 .main {
-  width: 60%;
-  margin-top: 30px;
+  width: 100%;
+  margin-top: 90px;
+}
+.main img {
+  opacity: 0.7;
+}
+.main img:hover {
+  opacity: 1.0;
 }
 
 .tools {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .bookmarks {
   padding: 5px;
-}
-
-.wrapper {
-  width: 98%;
-  margin: 0 auto;
 }
 
 .picture {
@@ -171,22 +206,9 @@ header {
   margin-right: 5px;
 }
 
-#myCarousel {
-  width: 80%;
-  margin: auto;
-  margin-bottom: 30px;
-}
-
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  width: 70%;
-  margin: auto;
-}
-
 .footer {
-  width: 100%;
   color: white;
-  background-color: #7f8c8d;
+  font-weight: 300;
 }
 .footer h2 {
   font-size: 1.3em;
@@ -213,6 +235,21 @@ header {
   padding: 0px;
 }
 
+/*
+@media(max-width:1336px){
+  #banner {
+    text-align: center;
+    img {
+      margin:0;
+    }
+}
+
+  @keyframes animate-background {
+  	from { background-position: -300px -300px, -300px -300px;  }
+  	to { background-position: -300px -300px, -300px -300px; }
+}
+}
+*/
 @media (max-width: 991px) {
   header {
     width: 100%;
@@ -229,10 +266,6 @@ header {
   pre {
     width: 98%;
     padding: 5px;
-  }
-
-  #myCarousel {
-    width: 100%;
   }
 }
 @media (max-width: 767px) {
@@ -254,10 +287,6 @@ header {
 
   .main {
     width: 80%;
-  }
-
-  #myCarousel {
-    width: 100%;
   }
 
   .wrapper-tuts {
