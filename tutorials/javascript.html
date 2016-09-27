@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <title>JavaScript</title>
+
+    <style media="screen">
+
+    p {margin:0; padding:0; text-align: justify;}
+    #dimensions {cursor: pointer;}
+
+    </style>
+    <script src="../js/highlighter.js"></script>
+    <script>
+    function dim(){
+        var pattern = prompt("Enter ellement", "for classes=.class  for id=#div or for tag=a");
+        if (pattern != null) {
+        var txt = "";
+        txt += "Width: " + $(pattern).width() + "\n";
+        txt += "Height: " + $(pattern).height() + "\n";
+        txt += "Padding(left+right): " + ($(pattern).innerWidth()-$(pattern).width()) + "\n";
+        txt += "Padding(up+down): " + ($(pattern).innerHeight()-$(pattern).height()) + "\n";
+        txt += "Border: " + ($(pattern).outerWidth()-$(pattern).innerWidth())/2 + "\n";
+        txt += "Margin(left+right): " + ($(pattern).outerWidth(true)-$(pattern).outerWidth()) + "\n";
+        txt += "Margin(up+down): " + ($(pattern).outerHeight(true)-$(pattern).outerHeight()) + "\n";
+        txt += "Windows size: " + $(document).width();
+        txt += "x" + $(document).height() + "\n";
+        txt += "Viewport size: " + $(window).width();
+        txt += "x" + $(window).height() + "\n";
+        txt += "Scroll height" + window.pageYOffset ;
+       alert(txt);
+     }
+};
+    </script>
+    </head>
+
+
+  <body>
+    <div class="wrapper-tuts">
+    <a href="top:" id="return-to-top"></a>
+    <a class="home-picture" href="../index.html"><img src="../images/home.png" alt="Home"></a>
+  <h1>JavaScript</h1>
+  <script type="text/javascript">
+
+  </script>
+  <h3>Dimensions</h3>
+  <p>Get width, height, padding, margin, border, window size, viewport and scroll height.</p>
+  <pre id="dimensions" onclick="dim()">$(document).ready(function(){
+    var pattern = prompt("Enter ellement", "for classes=.class  for id=#div or for tag=a");
+    if (pattern != null) {
+        var txt = "";
+        txt += "Width: " + $(pattern).width() + "\n";
+        txt += "Height: " + $(pattern).height() + "\n";
+        txt += "Padding(left+right): " + ($(pattern).innerWidth()-$(pattern).width()) + "\n";
+        txt += "Padding(up+down): " + ($(pattern).innerHeight()-$(pattern).height()) + "\n";
+        txt += "Border: " + ($(pattern).outerWidth()-$(pattern).innerWidth())/2 + "\n";
+        txt += "Margin(left+right): " + ($(pattern).outerWidth(true)-$(pattern).outerWidth()) + "\n";
+        txt += "Margin(up+down): " + ($(pattern).outerHeight(true)-$(pattern).outerHeight()) + "\n";
+        txt += "Windows size: " + $(document).width();
+        txt += "x" + $(document).height() + "\n";
+        txt += "Viewport size: " + $(window).width();
+        txt += "x" + $(window).height() + "\n";
+        txt += "Scroll height" + window.pageYOffset ;
+        alert(txt);
+    }
+});
+</pre>
+
+<br>
+    <div class="footer-tuts">
+    | <a href="http://compass-style.org/examples/">Reference</a> |
+    | <a href="https://www.youtube.com/playlist?list=PL45DD77A4CCA76ED3" target="_blank"><img class="icons" src="../images/youtube.png" alt="youtube" /></a> |
+  </div>
+
+</div>
+  </body>
+  <script src="../js/scroll.js"></script>
+</html>
