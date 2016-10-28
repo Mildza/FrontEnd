@@ -47,6 +47,27 @@
   <script type="text/javascript">
 
   </script>
+  <h3>Function as Function Constructor</h3>
+  <p>Use <strong>new</strong> as function constructor.</p>
+  <p>Prototype - used only by the new operator.</p>
+  <p>Always use capitol letter in the name of function.</p>
+  <p>Method is placeing outside the function to reduce memory space in the case we have a plenty instances of functions.</p>
+  <p>It will be changed in ECMAScript 6.</p>
+  <pre>
+function Person(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+}
+var john = new Person('John', 'Doe');
+var jane = new Person('Jane', 'Doe');
+
+console.log(jane.firstname + ' ' + jane.lastname);
+
+Person.prototype.getformalname = function() {
+    return this.lastname + ', ' + this.firstname;
+}
+console.log(john.getformalname());
+  </pre>
   <h3>Dimensions</h3>
   <p>Get width, height, padding, margin, border, window size, viewport and scroll height.</p>
   <pre id="dimensions" onclick="dim()">$(document).ready(function(){
