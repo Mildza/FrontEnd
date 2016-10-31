@@ -47,6 +47,32 @@
   <script type="text/javascript">
 
   </script>
+  <h3>Execution Context</h3>
+  <p>A wrapper to help manage the code that is running.</p>
+  <p>Global execution context creates Global objects (window) and special variable "this".</p>
+  <p>Global means that is not inside a function.</p>
+  <p>Functions and variables are sitting in global window object.</p>
+  <p>Functions can be called before they are declared.</p>
+  <p>Always declare all variables at the beginning of every scope.</p>
+  <p>JavaScript in strict mode, "use strict", does not allow variables to be used if they are not declared.
+Study  in the next chapter.</p>
+  <h3>Name/Value pair</h3>
+  <p>A name which maps to unique value.</p>
+  <p>The name may be defined more than once, but only can have one value in any given context.That value may be more name/value pairs.</p>
+  <pre>Address = "21 Jump Street"</pre>
+  <h3>Object</h3>
+  <p>A collection of name value pairs.</p>
+  <pre>
+Addres:
+    {
+        street: 'Jump Street',
+        Number: '21'
+        Appartment: {
+            Floor: 3,
+            Number: 301
+        }
+    }
+</pre>
   <h3>Function as Function Constructor</h3>
   <p>Use <strong>new</strong> as function constructor.</p>
   <p>Prototype - used only by the new operator.</p>
