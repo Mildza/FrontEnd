@@ -54,8 +54,26 @@
   <p>Functions and variables are sitting in global window object.</p>
   <p>Functions can be called before they are declared.</p>
   <p>Always declare all variables at the beginning of every scope.</p>
-  <p>JavaScript in strict mode, "use strict", does not allow variables to be used if they are not declared.
-Study  in the next chapter.</p>
+  <p>JavaScript in strict mode, "use strict", does not allow variables to be used if they are not declared.</p>
+<p>Single Threaded - one command at a time.</p>
+<p>Synchronous - one line of at a time in order that apears.</p>
+<p>Invocation - runnig a function, using parenthesis ()</p>
+<p>Every function creates new execution context at the top of the stack.</p>
+<p>Scope - Where a variable is available in your code, block scoping.</p>
+<p>Let - Declare and available inside block.</p>
+<p>Asynchronous - more than one ta a time, like Browser handle request.</p>
+<h3>Event Queue - full of events</h3>
+<p>Only when stack is empty engine look periodicly at event queue, wait to something be there. Like Click, HTTP request.</p>
+<h3>Dynamic Typing</h3>
+<p>We dont tell the engine what type of data a variable holds, it figures it out while our code is running. Variables can hold different types of values because its all figured out during execution.</p>
+<h3>6 Primitive types</h3>
+<p>Primitive type - a type of data that represents a single value, not a object.</p>
+<p>1. Undefined - representts lack of existence (we shouldnt set a variable to this)</p>
+<p>2. Null - representts lack of existence (we can set a variable to this)</p>
+<p>3. Boolean - true or false </p>
+<p>4. Number -Floating point number (there's always some decimals).</p>
+<p>5. String - A sequence of characters (both '' and "" can be used).</p>
+<p>6. Symbol (ES6) - </p>
   <h3>Name/Value pair</h3>
   <p>A name which maps to unique value.</p>
   <p>The name may be defined more than once, but only can have one value in any given context.That value may be more name/value pairs.</p>
@@ -119,8 +137,11 @@ console.log(john.getformalname());
 
 <br>
     <div class="footer-tuts">
-    | <a href="http://compass-style.org/examples/">Reference</a> |
-    | <a href="https://www.youtube.com/playlist?list=PL45DD77A4CCA76ED3" target="_blank"><img class="icons" src="../images/youtube.png" alt="youtube" /></a> |
+    | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Reference</a>
+    | <a href="https://www.youtube.com/watch?v=Bv_5Zv5c-Ts" target="_blank"><img class="icons" src="../images/youtube.png" alt="youtube" /></a>
+    | <a href="http://underscorejs.org/">Underscore.js</a>
+    | <a href="http://momentjs.com/">Moment.js</a> |
+
   </div>
 
 </div>
