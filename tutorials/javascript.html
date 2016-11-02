@@ -74,6 +74,24 @@
 <p>4. Number -Floating point number (there's always some decimals).</p>
 <p>5. String - A sequence of characters (both '' and "" can be used).</p>
 <p>6. Symbol (ES6) - </p>
+<h3>Operators</h3>
+<p>Generally, take two parameters and return one result. Operators are functions.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">Operator Precedence</a> - which operator function gets called first. Functions are called in order of precedence. Higher precedece wins.</p>
+<p>Associativity - what order operator functions get called in: left to right or right to left. When functions have the same precednce.</p>
+<h3>Coercion</h3>
+<p>Converting a value from one type to another.</p>
+<p>Example of coercion to check if something exists:</p>
+<pre>
+if (a) {
+    console.log("Something is there.")
+
+}</pre>
+<p>Always use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness">Strict Equality Comparison</a> ===</p>
+<p>Example of set default values in the case of no values is passingS:</p>
+<pre>function greet(name) {
+    name = name || 'Your name here';
+    console.log('Hello ' + name);
+}greet();</pre>
   <h3>Name/Value pair</h3>
   <p>A name which maps to unique value.</p>
   <p>The name may be defined more than once, but only can have one value in any given context.That value may be more name/value pairs.</p>
@@ -91,6 +109,11 @@ Addres:
         }
     }
 </pre>
+<p>Object can contains:
+1. Primitive - property
+2. Object - property
+3. Function - method 
+</p>
   <h3>Function as Function Constructor</h3>
   <p>Use <strong>new</strong> as function constructor.</p>
   <p>Prototype - used only by the new operator.</p>
