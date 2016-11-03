@@ -66,6 +66,8 @@
 <p>Only when stack is empty engine look periodicly at event queue, wait to something be there. Like Click, HTTP request.</p>
 <h3>Dynamic Typing</h3>
 <p>We dont tell the engine what type of data a variable holds, it figures it out while our code is running. Variables can hold different types of values because its all figured out during execution.</p>
+<h3>Namecpace</h3>
+<p>A container for variable and functions, typically to keep variables and functions with the same name separate.</p>
 <h3>6 Primitive types</h3>
 <p>Primitive type - a type of data that represents a single value, not a object.</p>
 <p>1. Undefined - representts lack of existence (we shouldnt set a variable to this)</p>
@@ -89,31 +91,41 @@ if (a) {
 <p>Always use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness">Strict Equality Comparison</a> ===</p>
 <p>Example of set default values in the case of no values is passingS:</p>
 <pre>function greet(name) {
-    name = name || 'Your name here';
-    console.log('Hello ' + name);
+    name = name || "Your name here";
+    console.log("Hello " + name);
 }greet();</pre>
   <h3>Name/Value pair</h3>
   <p>A name which maps to unique value.</p>
   <p>The name may be defined more than once, but only can have one value in any given context.That value may be more name/value pairs.</p>
   <pre>Address = "21 Jump Street"</pre>
   <h3>Object</h3>
-  <p>A collection of name value pairs.</p>
+  <p>Create object</p>
+  <pre>
+  var person = new Object();
+  var person = { };//shorthand objects literal
+  </pre>
+  <p>A collection of name value pairs, separated by coma ",".</p>
+  <p>Object can contains: Primitive - property, Object - property, Function - method.</p>
   <pre>
 Addres:
     {
-        street: 'Jump Street',
-        Number: '21'
+        street: "Jump Street",
+        Number: "21",
         Appartment: {
             Floor: 3,
             Number: 301
         }
-    }
-</pre>
-<p>Object can contains:
-1. Primitive - property
-2. Object - property
-3. Function - method 
-</p>
+    }</pre>
+
+<p>Computed and dot(always use dot) notation to find properties:</p>
+<pre>
+person["firstname"] = "Milan";
+person.firstname = "Milan";</pre>
+
+
+
+
+
   <h3>Function as Function Constructor</h3>
   <p>Use <strong>new</strong> as function constructor.</p>
   <p>Prototype - used only by the new operator.</p>
@@ -125,8 +137,8 @@ function Person(firstname, lastname) {
     this.firstname = firstname;
     this.lastname = lastname;
 }
-var john = new Person('John', 'Doe');
-var jane = new Person('Jane', 'Doe');
+var john = new Person("John", "Doe");
+var jane = new Person("Jane", "Doe");
 
 console.log(jane.firstname + ' ' + jane.lastname);
 
