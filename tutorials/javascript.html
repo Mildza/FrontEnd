@@ -116,13 +116,32 @@ Addres:
             Number: 301
         }
     }</pre>
-
-<p>Computed and dot(always use dot) notation to find properties:</p>
+<p>Computed and dot (always use dot) notation to find properties:</p>
 <pre>
 person["firstname"] = "Milan";
 person.firstname = "Milan";</pre>
-
-
+<h3>Faking Namespace</h3>
+<p>To avoid conflict in namespace we can use object as name container</p>
+<pre>
+var english = {}
+var spanish = {}
+english.greet = "Hello";
+spanish.greet = "Hola!";
+console.log(english.greet);</pre>
+<h3>JSON</h3>
+<p>Convert JSON to java script objec</p>
+<pre>JSON.parse('{"firstname": "Milan", "lastname": "Vukovic"}');</pre>
+<p>Convert java script to JSON</p>
+<pre>var objectLiteral = {
+  firstname: "Milan",
+  lastname: "Vukovic"
+}
+JSON.stringify(objectLiteral);
+</pre>
+<h3>First Class Functions</h3>
+<p>Everything we can  do with other types we can do with functions. Assign them to variables, pass them around, create them on the fly.</p>
+<p>We can attach primitive, object, function, name (can be anonymous), code which we can be invocable ().</p>
+<p>Functions are special type of object.</p>
 
 
 
