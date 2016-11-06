@@ -14,7 +14,7 @@
     #dimensions {cursor: pointer;}
 
     </style>
-    <script src="../js/highlighter.js"></script>
+    <script src="../js/highlighter2.js"></script>
     <script>
     function dim(){
         var pattern = prompt("Enter ellement", "for classes=.class  for id=#div or for tag=a");
@@ -128,30 +128,59 @@ var spanish = {}
 english.greet = "Hello";
 spanish.greet = "Hola!";
 console.log(english.greet);</pre>
-<h3>JSON</h3>
-<p>Convert JSON to java script objec</p>
-<pre>JSON.parse('{"firstname": "Milan", "lastname": "Vukovic"}');</pre>
-<p>Convert java script to JSON</p>
-<pre>var objectLiteral = {
-  firstname: "Milan",
-  lastname: "Vukovic"
-}
-JSON.stringify(objectLiteral);
-</pre>
+
 <h3>First Class Functions</h3>
-<p>Everything we can  do with other types we can do with functions. Assign them to variables, pass them around, create them on the fly.</p>
+<p>Everything we can do with other types we can do with functions. Assign them to variables, pass them around, create them on the fly.</p>
 <p>We can attach primitive, object, function, name (can be anonymous), code which we can be invocable ().</p>
 <p>Functions are special type of object.</p>
+<h3>Function Statements and Function Expressions</h3>
+<p>Statements just do work, not return a value like if statement</p>
+<pre>function greet() {
+  console.log("hi");
+}
+greet();</pre>
+<p>Expression - a unit of code that result in a value, it doesnt have to save to a variable.</p>
+<p>Function Expression is hoisted. Its not initialy in memory, its create on the fly.</p>
+<pre>var anonymousGreet = function() {
+  console.log("hi");
+}
+anonymousGreet();</pre>
+<p>Functions expression passing function as parameter</p>
+<pre>function log(a) {
+  a();
+}
+log(function(){
+  console.log("Hi");
+});</pre>
+<h3>Immediately Invoked Function Expressions - (IIFE)S</h3>
+<p>Run the function at point is created.</p>
+<pre>
+var greeting = function(name) {
+    return 'Hello ' + name;
+}('John');
+</pre>
+<p>Creat own excution c ontext.</p>
+<pre>
+// IIFE
+var firstname = 'John';
+
+(function(name) {
+
+  var greeting = 'Inside IIFE: Hello';
+  console.log(greeting + ' ' + name);
+
+}(firstname)); // IIFE
+
+</pre>
 
 
-
-  <h3>Function as Function Constructor</h3>
-  <p>Use <strong>new</strong> as function constructor.</p>
-  <p>Prototype - used only by the new operator.</p>
-  <p>Always use capitol letter in the name of function.</p>
-  <p>Method is placeing outside the function to reduce memory space in the case we have a plenty instances of functions.</p>
-  <p>It will be changed in ECMAScript 6.</p>
-  <pre>
+<h3>Function as Function Constructor</h3>
+<p>Use <strong>new</strong> as function constructor.</p>
+<p>Prototype - used only by the new operator.</p>
+<p>Always use capitol letter in the name of function.</p>
+<p>Method is placeing outside the function to reduce memory space in the case we have a plenty instances of functions.</p>
+<p>It will be changed in ECMAScript 6.</p>
+<pre>
 function Person(firstname, lastname) {
     this.firstname = firstname;
     this.lastname = lastname;
@@ -166,6 +195,146 @@ Person.prototype.getformalname = function() {
 }
 console.log(john.getformalname());
   </pre>
+<h3>Variables by Value and by Reference</h3>
+<p>By Value</p>
+<pre>a = primitive value
+b = a
+b = copy of primitive value
+b have new address
+2 separets spots in memory</pre>
+<pre>var a =3;
+b = a;
+a = 2;
+console.log(a); // 2
+
+console.log(b); // 3</pre>
+<p>By Reference</p>
+<pre>When set up variable equal to object
+b = a
+or
+pass to a function
+simple point to the same location in a memory like a, 2 name to the same address</pre>
+<p>All objects interact by reference when sending them equals to each other or passing to a function</p>
+<pre>var c = { greetings: 'hi' };
+var d;
+d = c;
+c.greeting = 'Hello';
+console.log(c); // Hello
+
+console.log(d); // Hello
+
+
+// even as parameters
+
+function changeGreeting (obj) {
+  obj.greeting = 'Hola';
+}
+console.log(c); // Hola
+
+console.log(d); // Hola
+
+
+// equals operator sets up new memory space (new address)
+
+c = { greeting: 'Howdy'}; // new objects
+
+console.log(c); // Howdy
+
+console.log(d); // Hola
+</pre>
+<H3>This</H3>
+<p>Inside function this point to global, window object.</p>
+<p>Inside object this point to object, even if function inside object beacuse function inside object is a method..</p>
+<p>But this inside fuction who sits inside functio point to global, window.</p>
+<p>To avoid problem best way to declare varaible self to point to this object.</p>
+<pre>var c = {
+  name: 'The c object',
+  log: function() {
+      var self = this;
+
+      self.name = 'Updated c object';
+      console.log(self);
+
+      var setname = function(newname) {
+          self.name = newname;
+      }
+      setname('Updated again! The c object');
+      console.log(self);
+  }
+}
+
+c.log();
+</pre>
+<h3>Arguments - ES6 Spread</h3>
+<p>Arguments contains a list of all values, parameters we passed to function.</p>
+<p>keyword arguments - containig a list of all values passed to function</p>
+<pre>function greet(firstname, lastname, language) {
+
+     language = language || 'en';
+
+    if (arguments.length === 0) {
+        console.log('Missing parameters!');
+        console.log('-------------');
+        return;
+    }
+    console.log(firstname);
+    console.log(lastname);
+    console.log(language);
+    console.log(arguments);
+    console.log('arg 0: ' + arguments[0]);
+    console.log('-------------');
+}
+greet();
+greet('John');
+greet('John', 'Doe');
+greet('John', 'Doe', 'es');
+
+// in ES6 I can do:  function greet(firstname, ...other)
+// and 'other' will be an array that contains the rest of the arguments
+</pre>
+
+
+
+
+
+
+<h3>Arrays - Collections of Anything</h3>
+<p>Each individual item in array can be differnet type.</p>
+<pre>var arr = [
+    1,
+    false,
+    {
+      name: "Milan",
+      addres: "VPD 11"
+    },
+    fuction(name) {
+      var greeting = "Hello ";
+      console.log(greeting + name);
+    },
+    "Hello"
+  ];
+  //run a fuction with name parameter
+  arr[3](arr[2].name);</pre>
+<h3>Syntax Parsers</h3>
+<p>Read our code and determines what is valid and what we trying to do, character by charcter.</p>
+<h4>Automatic Semicolon Insertion</h4>
+<p>JS engine put semicolon where is missing.</p>
+<p>Always put curly bracket at same line as function, foor loop, if statement.</p>
+<h3>Whitespace - carriage returns, tabs, spaces.</h3>
+<p>Syntax parser just ignore white spaces</p>
+<p>JS is very liberal about whitespace.</p>
+<h3>JSON</h3>
+<p>Convert JSON to java script objec</p>
+<pre>JSON.parse('{"firstname": "Milan", "lastname": "Vukovic"}');</pre>
+<p>Convert java script to JSON</p>
+<pre>var objectLiteral = {
+  firstname: "Milan",
+  lastname: "Vukovic"
+}
+JSON.stringify(objectLiteral);
+</pre>
+
+
   <h3>Dimensions</h3>
   <p>Get width, height, padding, margin, border, window size, viewport and scroll height.</p>
   <pre id="dimensions" onclick="dim()">$(document).ready(function(){
@@ -192,6 +361,7 @@ console.log(john.getformalname());
 <br>
     <div class="footer-tuts">
     | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Reference</a>
+    | <a href="https://github.com/lukehoban/es6features">ECMA6 Features</a>
     | <a href="https://www.youtube.com/watch?v=Bv_5Zv5c-Ts" target="_blank"><img class="icons" src="../images/youtube.png" alt="youtube" /></a>
     | <a href="http://underscorejs.org/">Underscore.js</a>
     | <a href="http://momentjs.com/">Moment.js</a> |
