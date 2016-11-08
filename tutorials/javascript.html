@@ -432,9 +432,109 @@ greet('John', 'Doe', 'es');
 // in ES6 I can do:  function greet(firstname, ...other)
 // and 'other' will be an array that contains the rest of the arguments
 </pre>
+<h3>call(), apply() and bind()</h3>
+<p>All functions have access to this 3 methods.</p>
+<p>bind - returns new functions, makes a copy of function and whatever method, object passed by. </p>
+<p>call execute functions, not create a copy</p>
+<p>apply passed parameters as array</p>
+
+<pre>
+var person = {
+    firstname: 'John',
+    lastname: 'Doe',
+    getFullName: function() {
+
+        var fullname = this.firstname + ' ' + this.lastname;
+        return fullname;
+
+    }
+}
+
+var logName = function(lang1, lang2) {
+
+    console.log('Logged: ' + this.getFullName());
+    console.log('Arguments: ' + lang1 + ' ' + lang2);
+    console.log('-----------');
+
+}
+
+var logPersonName = logName.bind(person);
+logPersonName('en');
+
+logName.call(person, 'en', 'es');
+logName.apply(person, ['en', 'es']);
+
+(function(lang1, lang2) {
+
+    console.log('Logged: ' + this.getFullName());
+    console.log('Arguments: ' + lang1 + ' ' + lang2);
+    console.log('-----------');
+
+}).apply(person, ['es', 'en']);
+
+// function borrowing
+var person2 = {
+    firstname: 'Jane',
+    lastname: 'Doe'
+}
+
+console.log(person.getFullName.apply(person2));
+
+// function currying
+function multiply(a, b) {
+    return a*b;
+}
+
+var multipleByTwo = multiply.bind(this, 2);
+console.log(multipleByTwo(4));
+</pre>
+<p>Function Currying - Creating a copy of a function but with some preset parameters.</p>
+<h3>Functional programming</h3>
+<pre>
+function mapForEach(arr, fn) {
+
+    var newArr = [];
+    for (var i=0; i < arr.length; i++) {
+        newArr.push(
+            fn(arr[i])
+        )
+    };
+
+    return newArr;
+}
+
+var arr1 = [1,2,3];
+console.log(arr1);
 
 
+var arr2 = mapForEach(arr1, function(item) {
+   return item * 2;
+});
+console.log(arr2);
 
+
+var arr3 = mapForEach(arr1, function(item) {
+   return item > 2;
+});
+console.log(arr3);
+
+
+var checkPastLimit = function(limiter, item) {
+    return item > limiter;
+}
+var arr4 = mapForEach(arr1, checkPastLimit.bind(this, 1));
+console.log(arr4);
+
+
+var checkPastLimitSimplified = function(limiter) {
+    return function(limiter, item) {
+        return item > limiter;
+    }.bind(this, limiter);
+};
+
+var arr5 = mapForEach(arr1, checkPastLimitSimplified(1));
+console.log(arr5);    
+</pre>
 
 
 
