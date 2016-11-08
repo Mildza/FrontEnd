@@ -314,74 +314,6 @@ tellMeWhenDone(function() {
 
 </pre>
 
-<h3>Function as Function Constructor</h3>
-<p>Use <strong>new</strong> as function constructor.</p>
-<p>Prototype - used only by the new operator.</p>
-<p>Always use capitol letter in the name of function.</p>
-<p>Method is placeing outside the function to reduce memory space in the case we have a plenty instances of functions.</p>
-<p>It will be changed in ECMAScript 6.</p>
-<pre>
-function Person(firstname, lastname) {
-    this.firstname = firstname;
-    this.lastname = lastname;
-}
-var john = new Person("John", "Doe");
-var jane = new Person("Jane", "Doe");
-
-console.log(jane.firstname + ' ' + jane.lastname);
-
-Person.prototype.getformalname = function() {
-    return this.lastname + ', ' + this.firstname;
-}
-console.log(john.getformalname());
-  </pre>
-<h3>Variables by Value and by Reference</h3>
-<p>By Value</p>
-<pre>a = primitive value
-b = a
-b = copy of primitive value
-b have new address
-2 separets spots in memory</pre>
-<pre>var a =3;
-b = a;
-a = 2;
-console.log(a); // 2
-
-console.log(b); // 3</pre>
-<p>By Reference</p>
-<pre>When set up variable equal to object
-b = a
-or
-pass to a function
-simple point to the same location in a memory like a, 2 name to the same address</pre>
-<p>All objects interact by reference when sending them equals to each other or passing to a function</p>
-<pre>var c = { greetings: 'hi' };
-var d;
-d = c;
-c.greeting = 'Hello';
-console.log(c); // Hello
-
-console.log(d); // Hello
-
-
-// even as parameters
-
-function changeGreeting (obj) {
-  obj.greeting = 'Hola';
-}
-console.log(c); // Hola
-
-console.log(d); // Hola
-
-
-// equals operator sets up new memory space (new address)
-
-c = { greeting: 'Howdy'}; // new objects
-
-console.log(c); // Howdy
-
-console.log(d); // Hola
-</pre>
 <H3>This</H3>
 <p>Inside function this point to global, window object.</p>
 <p>Inside object this point to object, even if function inside object beacuse function inside object is a method..</p>
@@ -533,10 +465,87 @@ var checkPastLimitSimplified = function(limiter) {
 };
 
 var arr5 = mapForEach(arr1, checkPastLimitSimplified(1));
-console.log(arr5);    
+console.log(arr5);
 </pre>
 
 
+<h3>Inheritance</h3>
+<p>One object gets access to the properties and methods of another object.</p>
+<h3>Reflection</h3>
+<p>AN object can look at itself, listening and changing its properties and methods.</p>
+
+
+<h3>Function as Function Constructor</h3>
+<p>Function constructors - a normal function that is used to construct object.
+  This variable points a new empty object, and that object is returned from the the function automaticaly.</p>
+<p>Use <strong>new</strong> as function constructor.</p>
+<p>Prototype - used only by the new operator.</p>
+<p>Always use capitol letter in the name of function if we will use as function constructor.</p>
+<p>Properties are in the functions constructors and methods are sitting in prototype.</p>
+<p>Method is placeing outside the function to reduce memory space in the case we have a plenty instances of functions.</p>
+<p>It will be changed in ECMAScript 6.</p>
+<pre>
+function Person(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+}
+var john = new Person("John", "Doe");
+var jane = new Person("Jane", "Doe");
+
+console.log(jane.firstname + ' ' + jane.lastname);
+
+Person.prototype.getformalname = function() {
+    return this.lastname + ', ' + this.firstname;
+}
+console.log(john.getformalname());
+  </pre>
+<h3>Variables by Value and by Reference</h3>
+<p>By Value</p>
+<pre>a = primitive value
+b = a
+b = copy of primitive value
+b have new address
+2 separets spots in memory</pre>
+<pre>var a =3;
+b = a;
+a = 2;
+console.log(a); // 2
+
+console.log(b); // 3</pre>
+<p>By Reference</p>
+<pre>When set up variable equal to object
+b = a
+or
+pass to a function
+simple point to the same location in a memory like a, 2 name to the same address</pre>
+<p>All objects interact by reference when sending them equals to each other or passing to a function</p>
+<pre>var c = { greetings: 'hi' };
+var d;
+d = c;
+c.greeting = 'Hello';
+console.log(c); // Hello
+
+console.log(d); // Hello
+
+
+// even as parameters
+
+function changeGreeting (obj) {
+  obj.greeting = 'Hola';
+}
+console.log(c); // Hola
+
+console.log(d); // Hola
+
+
+// equals operator sets up new memory space (new address)
+
+c = { greeting: 'Howdy'}; // new objects
+
+console.log(c); // Howdy
+
+console.log(d); // Hola
+</pre>
 
 <h3>Arrays - Collections of Anything</h3>
 <p>Each individual item in array can be differnet type.</p>
