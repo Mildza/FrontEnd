@@ -54,7 +54,7 @@
   <p>Functions and variables are sitting in global window object.</p>
   <p>Functions can be called before they are declared.</p>
   <p>Always declare all variables at the beginning of every scope.</p>
-  <p>JavaScript in strict mode, "use strict", does not allow variables to be used if they are not declared.</p>
+  <p>JavaScript in strict mode, "use strict", does not allow variables to be used if they are not declared. It must be on the top of the code or at the top of the function.</p>
 <p>Single Threaded - one command at a time.</p>
 <p>Synchronous - one line of at a time in order that apears.</p>
 <p>Invocation - runnig a function, using parenthesis ()</p>
@@ -498,7 +498,36 @@ Person.prototype.getformalname = function() {
     return this.lastname + ', ' + this.firstname;
 }
 console.log(john.getformalname());
-  </pre>
+ </pre>
+<h3>Pure Prototypal Inheritance - Object.create</h3>
+<pre>
+// polyfill ////////
+if (!Object.create) {
+  Object.create = function (o) {
+    if (arguments.length > 1) {
+      throw new Error('Object.create implementation'
+      + ' only accepts the first parameter.');
+    }
+    function F() {}
+    F.prototype = o;
+    return new F();
+  };
+}
+/////////////////
+var person = {
+    firstname: 'Default',
+    lastname: 'Default',
+    greet: function() {
+        return 'Hi ' + this.firstname;
+    }
+}
+
+var john = Object.create(person);
+john.firstname = 'John';
+john.lastname = 'Doe';
+console.log(john);
+</pre>
+
 <h3>Variables by Value and by Reference</h3>
 <p>By Value</p>
 <pre>a = primitive value
@@ -564,6 +593,9 @@ console.log(d); // Hola
   ];
   //run a fuction with name parameter
   arr[3](arr[2].name);</pre>
+<h3>Dont use "for in" un arrays.</h3>
+<h3>Polyfill - code that adds a feature which the engine may lack. </h3>
+<h3>Syntactic sugar - a different way to type something that doesnt change how it works under the hood.</h3>
 <h3>Syntax Parsers</h3>
 <p>Read our code and determines what is valid and what we trying to do, character by charcter.</p>
 <h4>Automatic Semicolon Insertion</h4>
