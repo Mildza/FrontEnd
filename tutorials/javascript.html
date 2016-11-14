@@ -61,13 +61,17 @@
 <p>Every function creates new execution context at the top of the stack.</p>
 <p>Scope - Where a variable is available in your code, block scoping.</p>
 <p>Let - Declare and available inside block.</p>
-<p>Asynchronous - more than one ta a time, like Browser handle request.</p>
+<p>Asynchronous - more than one at a time, like Browser handle request.</p>
+
 <h3>Event Queue - full of events</h3>
 <p>Only when stack is empty engine look periodicly at event queue, wait to something be there. Like Click, HTTP request.</p>
+
 <h3>Dynamic Typing</h3>
 <p>We dont tell the engine what type of data a variable holds, it figures it out while our code is running. Variables can hold different types of values because its all figured out during execution.</p>
-<h3>Namecpace</h3>
+
+<h3>Namespace</h3>
 <p>A container for variable and functions, typically to keep variables and functions with the same name separate.</p>
+
 <h3>6 Primitive types</h3>
 <p>Primitive type - a type of data that represents a single value, not a object.</p>
 <p>1. Undefined - representts lack of existence (we shouldnt set a variable to this)</p>
@@ -76,6 +80,7 @@
 <p>4. Number -Floating point number (there's always some decimals).</p>
 <p>5. String - A sequence of characters (both '' and "" can be used).</p>
 <p>6. Symbol (ES6) - </p>
+
 <h3>Operators</h3>
 <p>Generally, take two parameters and return one result. Operators are functions.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">Operator Precedence</a> - which operator function gets called first. Functions are called in order of precedence. Higher precedece wins.</p>
@@ -316,7 +321,7 @@ tellMeWhenDone(function() {
 
 <H3>This</H3>
 <p>Inside function this point to global, window object.</p>
-<p>Inside object this point to object, even if function inside object beacuse function inside object is a method..</p>
+<p>Inside object this point to object, even if function inside object beacuse function inside object is a method.</p>
 <p>But this inside fuction who sits inside functio point to global, window.</p>
 <p>To avoid problem best way to declare varaible self to point to this object.</p>
 <pre>var c = {
@@ -593,14 +598,16 @@ console.log(d); // Hola
   ];
   //run a fuction with name parameter
   arr[3](arr[2].name);</pre>
-  <h3>Method Chaining - Calling one method after another, and each method affects the parent object.</h3>
+  <h3>Method Chaining </h3>
+  <p>Calling one method after another, and each method affects the parent object.</p>
   <pre>var q = $("ul.people").addClass("newclass").removeClass("people");</pre>
-<h3>Dont use "for in" un arrays.</h3>
-<h3>Polyfill - code that adds a feature which the engine may lack. </h3>
-<h3>Syntactic sugar - a different way to type something that doesnt change how it works under the hood.</h3>
+<h4>Dont use "for in" un arrays.</h4>
+<h3>Polyfill</h3>
+<p>code that adds a feature which the engine may lack.</p>
+<h3>Syntactic sugar</h3> <p> a different way to type something that doesnt change how it works under the hood.</p>
 <h3>Syntax Parsers</h3>
 <p>Read our code and determines what is valid and what we trying to do, character by charcter.</p>
-<h4>Automatic Semicolon Insertion</h4>
+<h3>Automatic Semicolon Insertion</h3>
 <p>JS engine put semicolon where is missing.</p>
 <p>Always put curly bracket at same line as function, foor loop, if statement.</p>
 <h3>Whitespace - carriage returns, tabs, spaces.</h3>
