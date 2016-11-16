@@ -80,7 +80,48 @@
 <p>4. Number -Floating point number (there's always some decimals).</p>
 <p>5. String - A sequence of characters (both '' and "" can be used).</p>
 <p>6. Symbol (ES6) - </p>
+<h3>Variables by Value and by Reference</h3>
+<p>By Value</p>
+<pre>a = primitive value
+b = a
+b = copy of primitive value
+b have new address
+2 separets spots in memory</pre>
+<pre>var a =3;
+b = a;
+a = 2;
+console.log(a); // 2
 
+console.log(b); // 3</pre>
+<p>By Reference</p>
+<pre>When set up variable equal to object
+b = a
+or
+pass to a function
+simple point to the same location in a memory like a, 2 name to the same address</pre>
+<p>All objects interact by reference when sending them equals to each other or passing to a function</p>
+<pre>var c = { greetings: 'hi' };
+var d;
+d = c;
+c.greeting = 'Hello';
+console.log(c); // Hello
+console.log(d); // Hello
+
+// even as parameters
+
+function changeGreeting (obj) {
+  obj.greeting = 'Hola';
+}
+console.log(c); // Hola
+console.log(d); // Hola
+
+// equals operator sets up new memory space (new address)
+
+c = { greeting: 'Howdy'}; // new objects
+
+console.log(c); // Howdy
+console.log(d); // Hola
+</pre>
 <h3>Operators</h3>
 <p>Generally, take two parameters and return one result. Operators are functions.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">Operator Precedence</a> - which operator function gets called first. Functions are called in order of precedence. Higher precedece wins.</p>
@@ -99,15 +140,26 @@ if (a) {
     name = name || "Your name here";
     console.log("Hello " + name);
 }greet();</pre>
+
   <h3>Name/Value pair</h3>
   <p>A name which maps to unique value.</p>
   <p>The name may be defined more than once, but only can have one value in any given context.That value may be more name/value pairs.</p>
   <pre>Address = "21 Jump Street"</pre>
+
   <h3>Object</h3>
-  <p>Create object</p>
+  <p>Creating Objects - There are the two common ways to create objects:</p>
+  <p>Object Constructor</p>
   <pre>
   var person = new Object();
-  var person = { };//shorthand objects literal
+  person.name = "John";
+  person.lastname = "Doe";
+  </pre>
+  <p>Object Literals - the easiest way</p>
+  <pre>
+  var person = {
+    name: "John",
+    lastname: "Doe"
+   };//shorthand objects literal
   </pre>
   <p>A collection of name value pairs, separated by coma ",".</p>
   <p>Object can contains: Primitive - property, Object - property, Function - method.</p>
@@ -123,8 +175,21 @@ Addres:
     }</pre>
 <p>Computed and dot (always use dot) notation to find properties:</p>
 <pre>
-person["firstname"] = "Milan";
-person.firstname = "Milan";</pre>
+person["firstname"] = John";
+person.firstname = "John";</pre>
+<h3>Constructor Pattern for Creating Objects</h3>
+<pre>
+function Greet(firstName, lastName) {
+    this.firstname = firstName;
+    this.lastname = lastName;
+
+    this.fullname = function(firstname, lastname) {
+        console.log(firstname + " " + lastname);
+    }
+}
+var greeting = new Greet;
+greeting.fullname("John", "Doe");
+</pre>
 
 <h3>Faking Namespace</h3>
 <p>To avoid conflict in namespace we can use object as name container</p>
@@ -504,6 +569,7 @@ Person.prototype.getformalname = function() {
 }
 console.log(john.getformalname());
  </pre>
+
 <h3>Pure Prototypal Inheritance - Object.create</h3>
 <pre>
 // polyfill ////////
@@ -533,53 +599,7 @@ john.lastname = 'Doe';
 console.log(john);
 </pre>
 
-<h3>Variables by Value and by Reference</h3>
-<p>By Value</p>
-<pre>a = primitive value
-b = a
-b = copy of primitive value
-b have new address
-2 separets spots in memory</pre>
-<pre>var a =3;
-b = a;
-a = 2;
-console.log(a); // 2
 
-console.log(b); // 3</pre>
-<p>By Reference</p>
-<pre>When set up variable equal to object
-b = a
-or
-pass to a function
-simple point to the same location in a memory like a, 2 name to the same address</pre>
-<p>All objects interact by reference when sending them equals to each other or passing to a function</p>
-<pre>var c = { greetings: 'hi' };
-var d;
-d = c;
-c.greeting = 'Hello';
-console.log(c); // Hello
-
-console.log(d); // Hello
-
-
-// even as parameters
-
-function changeGreeting (obj) {
-  obj.greeting = 'Hola';
-}
-console.log(c); // Hola
-
-console.log(d); // Hola
-
-
-// equals operator sets up new memory space (new address)
-
-c = { greeting: 'Howdy'}; // new objects
-
-console.log(c); // Howdy
-
-console.log(d); // Hola
-</pre>
 
 <h3>Arrays - Collections of Anything</h3>
 <p>Each individual item in array can be differnet type.</p>
