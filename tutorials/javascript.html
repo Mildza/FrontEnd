@@ -247,7 +247,6 @@ var js = '{"firstname":"John","lastname":"Doe","gender":"male"}';
 var jsObj = JSON.parse(js);
 </pre>
 
-
 <h3>First Class Functions</h3>
 <p>Everything we can do with other types we can do with functions. Assign them to variables, pass them around, create them on the fly.</p>
 <p>We can attach primitive, object, function, name (can be anonymous), code which we can be invocable ().</p>
@@ -530,32 +529,27 @@ function mapForEach(arr, fn) {
             fn(arr[i])
         )
     };
-
     return newArr;
 }
 
 var arr1 = [1,2,3];
 console.log(arr1);
 
-
 var arr2 = mapForEach(arr1, function(item) {
    return item * 2;
 });
 console.log(arr2);
-
 
 var arr3 = mapForEach(arr1, function(item) {
    return item > 2;
 });
 console.log(arr3);
 
-
 var checkPastLimit = function(limiter, item) {
     return item > limiter;
 }
 var arr4 = mapForEach(arr1, checkPastLimit.bind(this, 1));
 console.log(arr4);
-
 
 var checkPastLimitSimplified = function(limiter) {
     return function(limiter, item) {
@@ -567,16 +561,12 @@ var arr5 = mapForEach(arr1, checkPastLimitSimplified(1));
 console.log(arr5);
 </pre>
 
-
-<h3>Inheritance</h3>
-<p>One object gets access to the properties and methods of another object.</p>
-<h3>Reflection</h3>
-<p>AN object can look at itself, listening and changing its properties and methods.</p>
-
-
 <h3>Function as Function Constructor</h3>
-<p>Function constructors - a normal function that is used to construct object.
-  This variable points a new empty object, and that object is returned from the the function automaticaly.</p>
+<p>Function constructors - a normal function that is used to construct object.  This variable points a new empty object, and that object is returned from the the function automaticaly.</p>
+<h3>Prototype</h3>
+<p>Every JavaScript function has a prototype property (this property is empty by default), and you attach properties and methods on this prototype property when you want to implement inheritance.</p>
+<p>This prototype property is not enumerable; that is, it isn’t accessible in a for/in loop. </p>
+<p>The prototype property is used primarily for inheritance, you add methods and properties on a function’s prototype property to make those methods and properties available to instances of that function.</p>
 <p>Use <strong>new</strong> as function constructor.</p>
 <p>Prototype - used only by the new operator.</p>
 <p>Always use capitol letter in the name of function if we will use as function constructor.</p>
@@ -598,6 +588,15 @@ Person.prototype.getformalname = function() {
 }
 console.log(john.getformalname());
  </pre>
+<h3>Prototype Property: Prototype-based Inheritance</h3>
+ <p>Prototype is important in JavaScript because JavaScript does not have classical inheritance based on Classes (as most object oriented languages do), and therefore all inheritance in JavaScript is made possible through the prototype property. JavaScript has a prototype-based inheritance mechanism.Inheritance is a programming paradigm where objects (or Classes in some languages) can inherit properties and methods from other objects (or Classes). In JavaScript, you implement inheritance with the prototype property</p>
+
+
+
+ <h3>Reflection</h3>
+ <p>AN object can look at itself, listening and changing its properties and methods.</p>
+
+
 
 <h3>Pure Prototypal Inheritance - Object.create</h3>
 <pre>
