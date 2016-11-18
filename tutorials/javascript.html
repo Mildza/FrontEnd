@@ -47,6 +47,23 @@
   <script type="text/javascript">
 
   </script>
+  <h3>Syntax Parsers</h3>
+  <p>Read our code and determines what is valid and what we trying to do, character by charcter.</p>
+
+  <h3>Whitespace - carriage returns, tabs, spaces.</h3>
+  <p>Syntax parser just ignore white spaces</p>
+  <p>JS is very liberal about whitespace.</p>
+
+  <h3>Automatic Semicolon Insertion</h3>
+  <p>JS engine put semicolon where is missing.</p>
+  <p>Always put curly bracket at same line as function, foor loop, if statement.</p>
+
+  <h3>Syntactic sugar</h3>
+  <p> A different way to type something that doesnt change how it works under the hood.</p>
+
+  <h3>Polyfill</h3>
+  <p>Code that adds a feature which the engine may lack.</p>
+
   <h3>Execution Context</h3>
   <p>A wrapper to help manage the code that is running.</p>
   <p>Global execution context creates Global objects (window) and special variable "this".</p>
@@ -71,6 +88,15 @@
 
 <h3>Namespace</h3>
 <p>A container for variable and functions, typically to keep variables and functions with the same name separate.</p>
+
+<h3>Faking Namespace</h3>
+<p>To avoid conflict in namespace we can use object as name container</p>
+<pre>
+var english = {}
+var spanish = {}
+english.greet = "Hello";
+spanish.greet = "Hola!";
+console.log(english.greet);</pre>
 
 <h3>6 Primitive types</h3>
 <p>Primitive type - a type of data that represents a single value, not a object.</p>
@@ -175,9 +201,9 @@ Addres:
     }</pre>
 <p>Computed and dot (always use dot) notation to find properties:</p>
 <pre>
-person["firstname"] = John";
+person["firstname"] = "John";
 person.firstname = "John";</pre>
-<h3>Constructor Pattern for Creating Objects</h3>
+<p>Constructor Pattern for Creating Objects</p>
 <pre>
 function Greet(firstName, lastName) {
     this.firstname = firstName;
@@ -190,15 +216,37 @@ function Greet(firstName, lastName) {
 var greeting = new Greet;
 greeting.fullname("John", "Doe");
 </pre>
-
-<h3>Faking Namespace</h3>
-<p>To avoid conflict in namespace we can use object as name container</p>
+<p>Objects have inherited properties and own properties. The own properties are properties that were defined on the object, while the inherited properties were inherited from the object’s Prototype object.</p>
 <pre>
-var english = {}
-var spanish = {}
-english.greet = "Hello";
-spanish.greet = "Hola!";
-console.log(english.greet);</pre>
+var person = {firstname:"John"};
+console.log(person.hasOwnProperty("firstname")) // true;
+</pre>
+<p>To access the enumerable (own and inherited) properties on objects, you use the for/in loop or a general for loop.
+</p>
+<pre>
+var person = {firstname:"John", lastname:"Doe", gender:"male"};
+for (var eachItem in person) {
+console.log(eachItem); // firstname lastname gender
+}
+</pre>
+<p>Deleting Properties of an Object  -
+To delete a property from an object, you use the delete operator. You cannot delete properties that were inherited, nor can you delete properties with their attributes set to configurable. You must delete the inherited properties on the prototype object (where the properties were defined). Also, you cannot delete properties of the global object, which were declared with the var keyword.</p>
+<pre>
+var person = {firstname:"John", lastname:"Doe", gender:"male"};
+delete person.firstname;
+</pre>
+<h3>Serialize and Deserialize Objects</h3>
+<p>To transfer your objects via HTTP or to otherwise convert it to a string, you will need to serialize it (convert it to a string); you can use the JSON.stringify function to serialize your objects.</p>
+<pre>
+var person = {firstname:"John",lastname:"Doe",gender:"male"};
+var person2 = JSON.stringify(person, null,2);
+</pre>
+<p>To Deserialize your object (convert it to an object from a string), you use the JSON.parse function </p>
+<pre>
+var js = '{"firstname":"John","lastname":"Doe","gender":"male"}';
+var jsObj = JSON.parse(js);
+</pre>
+
 
 <h3>First Class Functions</h3>
 <p>Everything we can do with other types we can do with functions. Assign them to variables, pass them around, create them on the fly.</p>
@@ -223,6 +271,7 @@ anonymousGreet();</pre>
 log(function(){
   console.log("Hi");
 });</pre>
+
 <h3>Immediately Invoked Function Expressions - (IIFE)S</h3>
 <p>Run the function at point is created.</p>
 <pre>
@@ -236,12 +285,9 @@ var greeting = function(name) {
 var firstname = 'John';
 
 (function(name) {
-
   var greeting = 'Inside IIFE: Hello';
   console.log(greeting + ' ' + name);
-
 }(firstname)); // IIFE
-
 </pre>
 
 <h3>Closures - feature of JavaScript</h3>
@@ -296,20 +342,15 @@ function buildFunctions2() {
                     console.log(j);
                 }
             }(i))
-
         )
-
     }
-
     return arr;
 }
 
 var fs2 = buildFunctions2();
 
 fs2[0](); // 0
-
 fs2[1](); // 1
-
 fs2[2](); // 2
 </pre>
 
@@ -328,9 +369,7 @@ function makeGreeting(language) {
         if (language === 'es') {
             console.log('Hola ' + firstname + ' ' + lastname);
         }
-
     }
-
 }
 
 var greetEnglish = makeGreeting('en');
@@ -347,13 +386,9 @@ function sayHiLater() {
     var greeting = 'Hi!';
 
     setTimeout(function() {
-
         console.log(greeting);
-
     }, 3000);
-
 }
-
 sayHiLater();
 
 // jQuery uses function expressions and first-class functions!
@@ -367,27 +402,21 @@ function tellMeWhenDone(callback) {
     var b = 2000; // some work
 
     callback(); // the 'callback', it runs the function I give it!
-
 }
 
 tellMeWhenDone(function() {
-
     console.log('I am done!');
-
 });
 
 tellMeWhenDone(function() {
-
     console.log('All done...');
-
 });
-
 </pre>
 
-<H3>This</H3>
+<h3>This</h3>
 <p>Inside function this point to global, window object.</p>
 <p>Inside object this point to object, even if function inside object beacuse function inside object is a method.</p>
-<p>But this inside fuction who sits inside functio point to global, window.</p>
+<p>But this inside fuction who sits inside function point to global, window.</p>
 <p>To avoid problem best way to declare varaible self to point to this object.</p>
 <pre>var c = {
   name: 'The c object',
@@ -622,27 +651,7 @@ console.log(john);
   <p>Calling one method after another, and each method affects the parent object.</p>
   <pre>var q = $("ul.people").addClass("newclass").removeClass("people");</pre>
 <h4>Dont use "for in" un arrays.</h4>
-<h3>Polyfill</h3>
-<p>code that adds a feature which the engine may lack.</p>
-<h3>Syntactic sugar</h3> <p> a different way to type something that doesnt change how it works under the hood.</p>
-<h3>Syntax Parsers</h3>
-<p>Read our code and determines what is valid and what we trying to do, character by charcter.</p>
-<h3>Automatic Semicolon Insertion</h3>
-<p>JS engine put semicolon where is missing.</p>
-<p>Always put curly bracket at same line as function, foor loop, if statement.</p>
-<h3>Whitespace - carriage returns, tabs, spaces.</h3>
-<p>Syntax parser just ignore white spaces</p>
-<p>JS is very liberal about whitespace.</p>
-<h3>JSON</h3>
-<p>Convert JSON to java script objec</p>
-<pre>JSON.parse('{"firstname": "Milan", "lastname": "Vukovic"}');</pre>
-<p>Convert java script to JSON</p>
-<pre>var objectLiteral = {
-  firstname: "Milan",
-  lastname: "Vukovic"
-}
-JSON.stringify(objectLiteral);
-</pre>
+
 
 
   <h3>Dimensions</h3>
