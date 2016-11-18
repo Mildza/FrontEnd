@@ -591,11 +591,13 @@ console.log(john.getformalname());
 <h3>Prototype Property: Prototype-based Inheritance</h3>
  <p>Prototype is important in JavaScript because JavaScript does not have classical inheritance based on Classes (as most object oriented languages do), and therefore all inheritance in JavaScript is made possible through the prototype property. JavaScript has a prototype-based inheritance mechanism.Inheritance is a programming paradigm where objects (or Classes in some languages) can inherit properties and methods from other objects (or Classes). In JavaScript, you implement inheritance with the prototype property</p>
 
+<h3>Prototype Attribute: Accessing Properties on Objects</h3>
+<p>If you want to access a property of an object, the search for the property begins directly on the object. If the JS runtime can’t find the property there, it then looks for the property on the object’s prototype—the object it inherited its properties from.
+If the property is not found on the object’s prototype, the search for the property then moves to prototype of the object’s prototype (the father of the object’s father—the grandfather). </p>
 
 
  <h3>Reflection</h3>
  <p>AN object can look at itself, listening and changing its properties and methods.</p>
-
 
 
 <h3>Pure Prototypal Inheritance - Object.create</h3>
