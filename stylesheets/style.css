@@ -16,6 +16,9 @@ html, body {
   font-weight: normal;
   font-style: normal;
 }
+
+
+
 .wrapper-tuts {
   width: 650px;
   margin: auto auto;
@@ -82,6 +85,8 @@ pre {
   white-space: pre-wrap;
   white-space: pre\9;
 }
+
+code {font-size: 1.2em;}
 
 .home-picture {
   position: absolute;

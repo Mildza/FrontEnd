@@ -39,10 +39,10 @@ h1 {text-align: center;color:black;}
 
 </head>
 <body>
+<button onclick="printContent('cv')">Print Content</button>
+<div id="cv" class="cv">
 
-<div class="cv">
-
-    <div class="left">
+    <div  class="left">
     <h1>Milan Vuković</h1>
     </div>
 
@@ -52,6 +52,15 @@ h1 {text-align: center;color:black;}
 
 </div>
 
+<script>
+    function printContent(el){
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+}
+</script>
 
 </body>
 </html>

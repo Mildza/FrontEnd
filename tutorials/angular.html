@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <title>AngularJS</title>
+
+    <style media="screen">
+
+    p {margin:0; padding:0; text-align: justify;}
+
+
+    </style>
+    <!-- <script src="../js/highlighter.js"></script> -->
+    <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+
+
+  <body>
+    <div class="wrapper-tuts">
+    <a href="top:" id="return-to-top"></a>
+    <a class="home-picture" href="../index.html"><img src="../images/home.png" alt="Home"></a>
+  <h1>AngularJS</h1>
+  <h3>Dependency Injection</h3>
+  <p>Giving a function an Object, rather than creating an object inside a function,you pass it to the function.</p>
+  <pre><code>
+var myApp = angular.module('myApp', []);
+
+myApp.controller('mainController', function($scope) {
+
+    $scope.name = 'Jane Doe';
+    $scope.occupation = 'Coder';
+
+    $scope.getname = function() {
+        return 'John Doe';
+    }
+
+    console.log($scope);
+
+});
+<p>$scope - presents middle piece between the view and the controller, defines the data that comming back to view.</p>
+</code>
+</pre>
+
+<br>
+    <div class="footer-tuts">
+    | <a href="http://compass-style.org/examples/">Reference</a> |
+    | <a href="https://www.youtube.com/watch?v=ejBkOjEG6F0" target="_blank"><img class="icons" src="../images/youtube.png" alt="youtube" /></a> |
+  </div>
+
+</div>
+  </body>
+  <script src="../js/scroll.js"></script>
+</html>
