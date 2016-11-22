@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../sass/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <title>AngularJS</title>
@@ -47,6 +49,46 @@ myApp.controller('mainController', function($scope) {
 <p>$scope - presents middle piece between the view and the controller, defines the data that comming back to view.</p>
 </code>
 </pre>
+<h3>Interpolation</h3>
+<p>Creating a string by combining strings and placeholders. 'My name is' + name is interpolated, and results in 'My name is John'</p>
+<pre><code>
+&ltdiv ng-controller="mainController">
+
+    &lth1>Hello {{ name + '. How are you?' }}&lt/h1>
+
+&lt/div>
+</code>
+</pre>
+<h3>Directive</h3>
+<p>An instruction to AngularJS to manipulate a piece of the DOM. This could be 'add a class', 'hide this', 'create this' ...</p>
+<h3>Two way data binding</h3>
+<p>Model change the view and then view change the model.</p>
+<pre><code>
+var myApp = angular.module('myApp', []);
+
+myApp.controller('mainController', ['$scope', '$filter', function($scope, $filter) {
+
+    $scope.handle = '';
+
+    $scope.lowercase = function() {
+    	return $filter('lowercase')($scope.handle);
+    };
+
+}]);
+ ----------------------------------------------------
+ &ltdiv ng-controller="mainController">
+
+   &ltdiv>
+       &ltlabel>What is Your twitter handle?&lt/label>
+       &ltinput type="text" ng-model="handle">
+   &lt/div>
+   &lt/hr>
+   &lth1>twitter.com/{{ lowercase(); }}&lt/h1>
+
+   &lt/div>
+</code></pre>
+
+
 
 <br>
     <div class="footer-tuts">
