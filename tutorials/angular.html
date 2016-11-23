@@ -3,8 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../sass/style.css">
@@ -76,11 +74,64 @@ myApp.controller('mainController', ['$scope', '$filter', function($scope, $filte
    &lth1>twitter.com/{{ lowercase(); }}&lt/h1>
  &lt/div></code></pre>
 
+<pre><code>
+// js //
+var myApp = angular.module('myApp', []);
+myApp.controller('mainController', ['$scope', '$filter', function($scope, $filter) {
+
+    $scope.handle = '';
+    $scope.lowercasehandle = function() {
+      return $filter('lowercase')($scope.handle);
+    };
+
+    $scope.characters = 5;
+
+    $scope.rules = [
+      { rulename: "Must be 5 characters" },
+      { rulename: "Must not be used elsewhere" },
+      { rulename: "Must be cool" }
+    ];
+
+    console.log($scope.rules);
+}]);
+-----------------------------------------------
+// html //
+&ltdiv ng-controller="mainController">
+ &ltdiv>
+   &ltlabel>What is your twitter handle?&lt/label>
+   &ltinput type="text" ng-model="handle" />
+ &lt/div>
+
+ &ltdiv class="alert" ng-class="{ 'alert-warning': handle.length < characters, 'alert-danger': handle.length > characters }" ng-if="handle.length !== characters">
+
+   &ltdiv ng-show="handle.length < characters">
+     You have less than 5 characters!
+   &lt/div>
+   &ltdiv ng-show="handle.length > characters">
+     You have more than 5 characters!
+   &lt/div>
+
+ &lt/div>
+
+ &lthr />
+
+ &lth1>twitter.com/{{ lowercasehandle() }}&lt/h1>
+
+ &lth3>Rules&lt/h3>
+ &ltul>
+   &ltli ng-repeat="rule in rules">
+     {{ rule.rulename }}
+   &lt/li>
+ &lt/ul>
+&lt/div>
+</code></pre>
+
+
 
 
 <br>
     <div class="footer-tuts">
-    | <a href="http://compass-style.org/examples/">Reference</a> |
+    | <a href="https://docs.angularjs.org/api">Reference</a> |
     | <a href="https://www.youtube.com/watch?v=ejBkOjEG6F0" target="_blank"><img class="icons" src="../images/youtube.png" alt="youtube" /></a> |
   </div>
 
