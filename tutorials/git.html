@@ -2,7 +2,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../sass/style.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <title>Document</title>
@@ -11,7 +13,7 @@
   <style>
   p {margin:0; padding:0; text-align: justify;}
   </style>
-<script src="../js/highlighter.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 </head>
 <body>
@@ -22,91 +24,89 @@
 <h1>GIT commands</h1>
 
 <h3>Git config</h3>
-<pre>git config --list</pre>
+<pre><code>git config --list</code></pre>
 <p>Config username and email</p>
-<pre>git config --global user.name "Milan Vukovic"
-git config --global user.email "mildzan@gmail.com"
-</pre>
+<pre><code>git config --global user.name "Milan Vukovic"
+git config --global user.email "mildzan@gmail.com"</code></pre>
 
 <h3>Creating Repository</h3>
 <p>Navigate to your directory</p>
-<pre>git init</pre>
+<pre><code>git init</code></pre>
 
 <h3>Adding folders or files to repo</h3>
 <p>Adding to stage</p>
-<pre>git add .</pre>
+<pre><code>git add .</code></pre>
 <p>Adding to repo</p>
-<pre>git commit -m "some mesagge"</pre>
+<pre><code>git commit -m "some mesagge"</code></pre>
 <p>View commits</p>
-<pre>git log</pre>
+<pre><code>git log</code></pre>
 <p>View specific Author</p>
-<pre>git log --author="Milan"</pre>
+<pre><code>git log --author="Milan"</code></pre>
 <p>View status</p>
-<pre>git status</pre>
+<pre><code>git status</code></pre>
 <p>View differents between files</p>
-<pre>git diff
-git diff --staged
-</pre>
+<pre><code>git diff
+git diff --staged</code></pre>
 
 <h3>Deleting files</h3>
-<pre>git rm file.name
-git commit -m "deleting file"</pre>
+<pre><code>git rm file.name
+git commit -m "deleting file"</code></pre>
 <p>We can later go to this point of time and roll back file</p>
 
 <h3>Move and rename files</h3>
-<pre>git mv old.name new.name
+<pre><code>git mv old.name new.name
 git mv old.name newfolder/new.name
-git commit -m "renamed files"</pre>
+git commit -m "renamed files"</code></pre>
 
 <h3>Not accepting changes to a file</h3>
 <p>To see which file is modified</p>
-<pre>git status
-git checkout -- file.name</pre>
+<pre><code>git status
+git checkout -- file.name</code></pre>
 <p>Get back file from a stageing areas</p>
-<pre>git reset HEAD file.name</pre>
+<pre><code>git reset HEAD file.name</code></pre>
 
 <h3>Gettin old version from the repo</h3>
 <p>First get log to see commits</p>
-<pre>git log</pre>
+<pre><code>git log</code></pre>
 <p>Then use command checkout and couple letters from commit</p>
-<pre>git checkout 01e7... -- file.name
-git commit -am "Rollback"</pre>
+<pre><code>git checkout 01e7... -- file.name
+git commit -am "Rollback"</code></pre>
 
 <h3>Adding files directly to repo, skipping stage area</h3>
-<pre>git commit -am "Adding any changes drectly but also deleting files"</pre>
+<pre><code>git commit -am "Adding any changes drectly but also deleting files"</code></pre>
 
 <h3>Adding new repo remotely</h3>
 <p class="italic">First create repo on github</p>
-<pre>git remote add (repo name) (remote url)
+<pre><code>git remote add (repo name) (remote url)
 git remote add exampleGithub https://github.com/Mildza/links
-git remote - check repo</pre>
+git remote - check repo</code></pre>
 
 <h3>Adding files remotely</h3>
-<pre>git push -u (repo name) master</pre>
+<pre><code>git push -u (repo name) master</code></pre>
 
 <h3>Fetching files from remote repo</h3>
-<pre>git pull (repo name)
-git fetch (repo name)</pre>
+<pre><code>git pull (repo name)
+git fetch (repo name)</code></pre>
 
 <h3>Branches</h3>
 <p>To see all branches</p>
-<pre>git branch -a</pre>
+<pre><code>git branch -a</code></pre>
 <p>Check local branch</p>
-<pre>git branch</pre>
+<pre><code>git branch</code></pre>
 <p>Switch beetwen branches</p>
-<pre>git checkout BranchName</pre>
+<pre><code>git checkout BranchName</code></pre>
 <p>Make new branch</p>
-<pre>git checkout -b newbranch</pre>
+<pre><code>git checkout -b newbranch</code></pre>
 <p>Commit to new branch</p>
-<pre>git commit -am "new feature to newbranch"</pre>
+<pre><code>git commit -am "new feature to newbranch"</code></pre>
 <p>Crete new branch remotely</p>
-<pre>git push origin newbranch</pre>
+<pre><code>git push origin newbranch</code></pre>
 <p>Merge branch</p>
-<pre>git merge newbranch</pre>
+<pre><code>git merge newbranch</code></pre>
 <p>Delete local branch</p>
-<pre>git branch -d newbranch</pre>
+<pre><code>git branch -d newbranch</code></pre>
 <p>Delete remote branch</p>
-<pre>git push origin :newbranch</pre>
+<pre><code>git push origin :newbranch</code></pre>
 <br>
 <div class="footer-tuts">
 | <a href="http://gitref.org/" target="_blank">Reference</a>

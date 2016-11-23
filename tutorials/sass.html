@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../sass/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <title>SASS</title>
@@ -13,7 +15,7 @@
     </style>
 
   </head>
-<script src="../js/highlighter.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 <body>
   <div class="wrapper-tuts">
@@ -21,28 +23,25 @@
     <a class="home-picture" href="../index.html"><img src="../images/home.png" alt="Home"></a>
     <h1>SASS - Syntactically Awesome StyleSheets</h1>
     <h3>Install and use SASS</h3>
-    <pre>gem install sass</pre>
+    <pre><code>gem install sass</code></pre>
     <p>To run Sass</p>
-    <pre>sass input.scss output.css</pre>
+    <pre><code>sass input.scss output.css</code></pre>
     <p>Tell Sass to watch and update file automaticly</p>
-    <pre>sass --watch input.scss:output.css</pre>
+    <pre><code>sass --watch input.scss:output.css</code></pre>
     <h3>Variables</h3>
     <p>Sass uses $ to make a variable</p>
-  <pre>
-$font-stack: Arial, sans-serif;
+  <pre><code>$font-stack: Arial, sans-serif;
 $bg-color: #206bcf;
 
 p {
   font: $font-stack;
   color: $bg-color;
-  }</pre>
+  }</code></pre>
 
 <h3>Nesting</h3>
 <p>Sass let nest CSS selectors in the same way as HTML. The inner rule then only applies within the outer rule’s selector.</p>
 <p>SCSS syntax</p>
-<pre>
-
-nav {
+<pre><code>nav {
   ul {
     margin: 0;
     padding: 0;
@@ -56,11 +55,9 @@ nav {
     padding: 6px 12px;
     text-decoration: none;
   }
-}
-</pre>
+}</code></pre>
 <p>CSS syntax</p>
-<pre>
-  nav ul {
+<pre><code>  nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -74,8 +71,7 @@ nav a {
   display: block;
   padding: 6px 12px;
   text-decoration: none;
-}
-</pre>
+}</code></pre>
 <p>Referencing Parent Selectors: &</p>
 <p>Sometimes it’s useful to use a nested rule’s parent selector in other ways than the default. For instance, you might want to have special styles for when that selector is hovered over or for when the body element has a certain class. In these cases, you can explicitly specify where the parent selector should be inserted using the & character.</p>
 
@@ -86,35 +82,25 @@ nav a {
 <p>We can create partial Sass file that contain little snippets of CSS that we can include in other Sass file.</p>
 <p>We can modularize our css and keep easier to maintain</p>
 <p>Partials name start with leading underscore</p>
-<pre>_partial.scss</pre>
+<pre><code>_partial.scss</code></pre>
 
 <h3>Import</h3>
 <p>CSS has an import option that lets you split your CSS into smaller, more maintainable portions.</p>
 <p>With import we dont use leading underscore.</p>
-<pre>
-// _reset.scss
-
-html,
-body,
-ul,
-ol {
-   margin: 0;
-   padding: 0;
-}
-</pre>
-<pre>
-// base.scss
-
+<pre><code>/* _reset.scss */
+html, body, ul, ol {
+  margin: 0;
+  padding: 0;
+}</code></pre>
+<pre><code>/* base.scss */
 @import 'reset';
 
 body {
   font: 100% Helvetica, sans-serif;
   background-color: #efefef;
-}
-</pre>
+}</code></pre>
 <p>CSS will look</p>
-<pre>
-html, body, ul, ol {
+<pre><code>html, body, ul, ol {
   margin: 0;
   padding: 0;
 }
@@ -122,36 +108,31 @@ html, body, ul, ol {
 body {
   font: 100% Helvetica, sans-serif;
   background-color: #efefef;
-}
-</pre>
+}</code></pre>
 
 <h3>Mixins</h3>
 <p>A mixin lets you make groups of CSS declarations that you want to reuse throughout your site.</p>
 <p>We can even pass in values to make your mixin more flexible.</p>
-<pre>
-@mixin border-radius($radius) {
--webkit-border-radius: $radius;
-   -moz-border-radius: $radius;
-    -ms-border-radius: $radius;
-        border-radius: $radius;
+<pre><code>@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
 }
 
-.box {@include border-radius(10px);}
-</pre>
+.box {@include border-radius(10px);
+}</code></pre>
 <p>To create a mixin you use the @mixin directive and give it a name.</p>
 <p>We're also using the variable $radius inside the parentheses so we can pass in a radius of whatever we want. After you create your mixin, you can then use it as a CSS declaration starting with @include followed by the name of the mixin. </p>
-<pre>
-.box {
+<pre><code>.box {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   border-radius: 10px;
-}
-</pre>
+}</code></pre>
 <h3>Extend/Inheritance</h3>
 <p>This is one of the most useful features of Sass. Using @extend lets you share a set of CSS properties from one selector to another. It helps keep your Sass very DRY.</p>
-<pre>
-.message {
+<pre><code>.message {
   border: 1px solid #ccc;
   padding: 10px;
   color: #333;
@@ -167,11 +148,9 @@ body {
 .warning {
   @extend .message;
   border-color: yellow;
-}
-</pre>
+}</code></pre>
 <p>The magic happens with the generated CSS, and this helps you avoid having to write multiple class names on HTML elements. This is what it looks like:</p>
-<pre>
-.message, .success, .error, .warning{
+<pre><code>.message, .success, .error, .warning{
   border: 1px solid #cccccc;
   padding: 10px;
   color: #333;
@@ -184,13 +163,11 @@ body {
 }
 .warning {
   border-color: yellow;
-}</pre>
+}</code></pre>
 
 <h3>Operators</h3>
 <p>Doing math in your CSS is very helpful. Sass has a handful of standard math operators like +, -, *, /, and %.</p>
-<pre>
-.container { width: 100%; }
-
+<pre><code>.container { width: 100%; }
 article[role="main"] {
   float: left;
   width: 600px / 960px * 100%;
@@ -199,11 +176,9 @@ article[role="main"] {
 aside[role="complementary"] {
   float: right;
   width: 300px / 960px * 100%;
-  }
-</pre>
+  }</code></pre>
 <p>CSS will look</p>
-<pre>
-.container {
+<pre><code>.container {
   width: 100%;
 }
 
@@ -215,8 +190,7 @@ article[role="main"] {
 aside[role="complementary"] {
   float: right;
   width: 31.25%;
-}
-</pre>
+}</code></pre>
 
 <br>
   <div class="footer-tuts">

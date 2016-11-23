@@ -1,6 +1,12 @@
 .wrapper-tuts {width:650px;margin:auto auto;}
 
-code {font-size: 1.3em;}
+code {
+  font-size: 1.3em;
+  @include border-radius(10px);
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+}
 
 .pre-str{color:#27ae60;}
 .pre-elem{color:#3498db;}

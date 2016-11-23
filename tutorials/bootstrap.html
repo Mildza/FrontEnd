@@ -3,15 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-    <!--[if IE]>
-    <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <![endif]-->
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../sass/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <title>Bootstrap|Tips</title>
+    <title>Bootstrap | Tips</title>
 
     <style media="screen">
 
@@ -20,7 +17,7 @@
 
 
     </style>
-    <script src="../js/highlighter.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
     </head>
 
 
@@ -34,103 +31,103 @@
     <p>font-size is 14px and line-height is 1.428 applied to body and paragraphs</p>
     <h3>Emphasis</h3>
     <p>Class lead will give larger font size, lighter weight and a taller line height.</p>
-<pre>&lt;p class="lead"&gt; ... &lt;/p&gt;</pre>
+<pre><code>&lt;p class="lead"&gt; ... &lt;/p&gt;</code></pre>
     <p>Small tag <small>set text at 85% </small>the size of the parent</p>
-    <pre>&lt;small>some text&lt;/small&gt;</pre>
+    <pre><code>&lt;small>some text&lt;/small&gt;</code></pre>
     <p>Strong tag is <strong>rendered as bold</strong> text</p>
-    <pre>&lt;strong>some text&lt;/strong&gt;</pre>
+    <pre><code>&lt;strong>some text&lt;/strong&gt;</code></pre>
     <p>Em tag is <em>rendered as italic</em> text</p>
-    <pre>&lt;em>some text&lt;/em></pre>
+    <pre><code>&lt;em>some text&lt;/em></code></pre>
     <h3>Inline text elements</h3>
     <p>Marked text - For highlighting a run of text due to its relevance in another context, use the <mark>&lt;mark&gt;</mark>tag.</p>
-    <pre>You can use the mark tag to &lt;mark&gt;highlight&lt;/mark&gt; text.</pre>
+    <pre><code>You can use the mark tag to &lt;mark&gt;highlight&lt;/mark&gt; text.</code></pre>
     <p>Deleted text - For indicating blocks of text that have been deleted use the <del>&lt;del&gt;</del> tag.</p>
-    <pre>&lt;del&gt;This line of text is meant to be treated as deleted text.&lt;/del&gt;</pre>
+    <pre><code>&lt;del&gt;This line of text is meant to be treated as deleted text.&lt;/del&gt;</code></pre>
     <p>Strikethrough text - For indicating blocks of text that are no longer relevant use the <s>&lt;s&gt;</s>tag.</p>
-    <pre>&lt;s&gt;This line of text is meant to be treated as no longer accurate.&lt;/s&gt;</pre>
+    <pre><code>&lt;s&gt;This line of text is meant to be treated as no longer accurate.&lt;/s&gt;</code></pre>
     <p>Inserted text - For indicating additions to the document use the <ins>&lt;ins&gt;</ins> tag.</p>
-    <pre>&lt;ins&gt;This line of text is meant to be treated as an addition to the document.&lt;/ins&gt;</pre>
+    <pre><code>&lt;ins&gt;This line of text is meant to be treated as an addition to the document.&lt;/ins&gt;</code></pre>
     <p>Underlined text - To underline text use the <u>&lt;u&gt;</u> tag.</p>
-    <pre>&lt;u&gt;This line of text will render as underlined.&lt;/u&gt;</pre>
+    <pre><code>&lt;u&gt;This line of text will render as underlined.&lt;/u&gt;</code></pre>
     <h3>Alignment class</h3>
     <p>Align text to left</p>
-    <pre>class="text-left"</pre>
+    <pre><code>class="text-left"</code></pre>
     <p>Align text to center</p>
-    <pre>class="text-center"</pre>
+    <pre><code>class="text-center"</code></pre>
     <p>Align text to right</p>
-    <pre>class="text-right"</pre>
+    <pre><code>class="text-right"</code></pre>
     <p>Justified text</p>
-    <pre>class="text-justify"</pre>
+    <pre><code>class="text-justify"</code></pre>
     <p>No wrap text</p>
-    <pre>class="text-nowrap"</pre>
+    <pre><code>class="text-nowrap"</code></pre>
     <h3>Transformation Classes</h3>
     <p>Lowercased text</p>
-    <pre>&lt;p class="text-lowercase">Some Text&lt;/p&gt;</pre>
+    <pre><code>&lt;p class="text-lowercase">Some Text&lt;/p&gt;</code></pre>
     <p>Uppercased text</p>
-    <pre>&lt;p class="text-uppercase">Some Text&lt;/p&gt;</pre>
+    <pre><code>&lt;p class="text-uppercase">Some Text&lt;/p&gt;</code></pre>
     <p>Capitalized text, first letter of the word</p>
-    <pre>&lt;p class="text-capitalize">Some Text&lt;/p&gt;</pre>
+    <pre><code>&lt;p class="text-capitalize">Some Text&lt;/p&gt;</code></pre>
 
     <h3>Media Queries</h3>
     <p>Extra small devices (xs - less than 768px)</p>
-    <pre>No media query, since this is the default in Bootstrap</pre>
+    <pre><code>No media query, since this is the default in Bootstrap</code></pre>
     <p>Small devices (sm - 768px and up)</p>
-    <pre>@media (min-width: @screen-sm-min)
-{...}</pre>
+    <pre><code>@media (min-width: @screen-sm-min)
+{...}</code></pre>
     <p>Medium devices (md - 992px and up)</p>
-    <pre>@media (min-width: @screen-md-min)
-{...}</pre>
+    <pre><code>@media (min-width: @screen-md-min)
+{...}</code></pre>
     <p>Large devices (lg -1200px and up)</p>
-    <pre>@media (min-width: @screen-lg-min)
-{...}</pre>
+    <pre><code>@media (min-width: @screen-lg-min)
+{...}</code></pre>
     <h3>Class .visible-xs-*</h3>
     <p>Visible at xs but hidden at sm, md and lg</p>
     <h3>Class .hidden-xs-*</h3>
     <p>Hidden at xs but visible at sm, md and lg</p>
     <h3>Responsive Column Resets</h3>
     <p>At certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a .clearfix and our responsive utility classes.</p>
-    <pre>&lt;div class="clearfix visible-xs-block"/div&gt;</pre>
+    <pre><code>&lt;div class="clearfix visible-xs-block"/div&gt;</code></pre>
     <h3>Offseting Columns</h3>
     <p>Move columns to the right using .col-md-offset-* classes. These classes increase the left margin of a column by * columns. For example, .col-md-offset-4 moves .col-md-4 over four columns.</p>
-    <pre>&lt;class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4 &lt;/div&gt;</pre>
+    <pre><code>&lt;class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4 &lt;/div&gt;</code></pre>
     <h3>Column ordering</h3>
     <p>Easily change the order of our built-in grid columns with .col-md-push-* and .col-md-pull-* modifier classes.</p>
-    <pre>&lt;class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3 &lt;/div&gt;
-&lt;class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9 &lt;/div&gt;</pre>
+    <pre><code>&lt;class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3 &lt;/div&gt;
+&lt;class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9 &lt;/div&gt;</code></pre>
     <h3>Nesting columns</h3>
     <p>To nest your content with the default grid, add a new .row and set of .col-sm-* columns within an existing .col-sm-* column. Nested rows should include a set of columns that add up to 12 or fewer (it is not required that you use all 12 available columns).</p>
     <h3>Floats</h3>
     <p>Float left or rgiht</p>
-    <pre>&lt;div class="pull-left"&gt;...&lt;/div&gt;</pre>
-    <pre>&lt;div class="pull-right"&gt;...&lt;/div&gt;</pre>
+    <pre><code>&lt;div class="pull-left"&gt;...&lt;/div&gt;</code></pre>
+    <pre><code>&lt;div class="pull-right"&gt;...&lt;/div&gt;</code></pre>
     <h3>Center Content Blocks</h3>
     <p>Set an element to display:block and center via margin</p>
-    <pre>&lt;div class="center-block"&gt;...&lt;/div&gt;</pre>
+    <pre><code>&lt;div class="center-block"&gt;...&lt;/div&gt;</code></pre>
     <h3>Clearifx</h3>
-    <pre>&lt;div class="clearfix"&gt;...&lt;/div&gt;</pre>
+    <pre><code>&lt;div class="clearfix"&gt;...&lt;/div&gt;</code></pre>
     <h3>Showing and Hiding Content</h3>
-    <pre>&lt;div class="show"&gt;...&lt;/div&gt;</pre>
-    <pre>&lt;div class="hidden"&gt;...&lt;/div&gt;</pre>
+    <pre><code>&lt;div class="show"&gt;...&lt;/div&gt;</code></pre>
+    <pre><code>&lt;div class="hidden"&gt;...&lt;/div&gt;</code></pre>
     <h3>Image Replacement</h3>
     <p>Replace an element's text contetn with a backgound image</p>
-    <pre>&lt;h1 class="text-hide"&gt;Heading&lt;h1&gt;</pre>
+    <pre><code>&lt;h1 class="text-hide"&gt;Heading&lt;h1&gt;</code></pre>
     <h3>Screen Reader</h3>
     <p>Hide an element to all devices except screen readers</p>
-    <pre>&lt;a class="sr-only" href="#"&gt;some text&lt;/a&gt;</pre>
+    <pre><code>&lt;a class="sr-only" href="#"&gt;some text&lt;/a&gt;</code></pre>
 
     <h3>FORMS</h3>
     <p>All textual input, texarea and select with class .form-control have 100% width.</p>
     <p>Bootstrap provides 3 types od form layouts: Vertical form(default), Horizontal form, Inline form</p>
     <p>Standard Form roules</p>
-    <pre>&lt;form role="form"&gt;
+    <pre><code>&lt;form role="form"&gt;
   &lt;div class="form-group"&gt;
     &lt;input class="form-control" ...&gt;
-</pre>
+</code></pre>
     <h3>Supported Form Controls</h3>
     <p>Bootstrap supports the following form controls: input, textarea, checkbox, radio and select</p>
     <p>Most common form control types are:text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel and color.</p>
     <p>Inputs will be only fully styled if their type is properly declared.</p>
-    <pre>&lt;input type"text" class="form-control" placeholder="Text Input"&gt;</pre>
+    <pre><code>&lt;input type"text" class="form-control" placeholder="Text Input"&gt;</code></pre>
 
 
 

@@ -20,7 +20,14 @@ html, body {
      margin: auto auto; }
 
 code {
-     font-size: 1.3em; }
+     font-size: 1.3em;
+     -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+     -ms-border-radius: 10px;
+     border-radius: 10px;
+     word-break: break-all;
+     word-wrap: break-word;
+     white-space: pre; }
 
 .pre-str {
      color: #27ae60; }

@@ -3,15 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-    <!--[if IE]>
-    <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <![endif]-->
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../sass/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <title>AngularJS</title>
+    <title>Copmass</title>
 
     <style media="screen">
 
@@ -19,7 +16,7 @@
 
 
     </style>
-    <script src="../js/highlighter.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     </head>
 
 
@@ -29,31 +26,27 @@
     <a class="home-picture" href="../index.html"><img src="../images/home.png" alt="Home"></a>
   <h1>Compass</h1>
   <p>Compass needs ruby to be installed, then start gem and install compass</p>
-  <pre>gem install compass</pre>
+  <pre><code>gem install compass</code></pre>
   <p>To create new project and install compass</p>
-  <pre>compass create new_project</pre>
+  <pre><code>compass create new_project</code></pre>
   <p>To add compass to existing directory, navigate to parrent directory and run</p>
-  <pre>compass install compass</pre>
+  <pre><code>compass install compass</code></pre>
   <p>In header we need to add some lines</p>
-<pre>
-&ltlink href="/stylesheets/screen.css" media="screen, projection"
+<pre><code>&ltlink href="/stylesheets/screen.css" media="screen, projection"
  rel="stylesheet" type="text/css" /&gt
 &ltlink href="/stylesheets/print.css" media="print"
 rel="stylesheet" type="text/css" /&gt
 &lt!--[if IE]&gt
 &ltlink href="/stylesheets/ie.css" media="screen, projection"
 rel="stylesheet" type="text/css" /&gt
-&lt![endif]--&gt</pre>
+&lt![endif]--&gt</code></pre>
 <p>.scss files are stored in sass folder and .css files are in stylesheets folder</p>
 <p>We need to change path to css folder</p>
-<pre>
-&ltlink rel="stylesheet" type="text/css" href="stylesheets/style.css"&gt</pre>
+<pre><code>&ltlink rel="stylesheet" type="text/css" href="stylesheets/style.css"&gt</code></pre>
 <p>To compile your .scss to .css run</p>
-<pre>
-compass watch
-</pre>
+<pre><code>compass watch</code></pre>
 <p>In .scss file we must to add</p>
-<pre>@import 'compass';</pre>
+<pre><code>@import 'compass';</code></pre>
 <br>
     <div class="footer-tuts">
     | <a href="http://compass-style.org/examples/">Reference</a> |
