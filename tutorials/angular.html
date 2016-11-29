@@ -61,7 +61,16 @@ $scope.$watch('handle', function(newValue, oldValue) {
   console.log('New:' + newValue);
 });
 </code></pre>
-<p>Event loop doesnt efferct to digest loop</p>
+<p>Event loop doesnt effect to digest loop</p>
+<p>we can do with $apply to tell angular that something changed</p>
+<pre><code>
+  $timeout(function() {
+    $scope.$apply function {
+      $scope.handle = 'newtwitterhandle';
+      console.log('Scope changed!');
+    }
+  }, 3000);
+</code></pre>
 <p>$timeout service fix this problem</p>
 <pre><code>
 $timeout(function() {
@@ -148,7 +157,53 @@ myApp.controller('mainController', ['$scope', '$filter', function($scope, $filte
  &lt/ul>
 &lt/div>
 </code></pre>
+<h3>$http service - get and set data to the server</h3>
+<pre><code>$http.get('/api')
+  .success(function (result) {
+    $scope.rules = result;
+  })
+  .error(function (data, status) {
+    console.log(data);
+  });
 
+$scope.newRule = '';
+$scope.addRule = function () {
+  $http.post('/api', { newRule: $scope.newRule })
+    .success(function (result) {
+      console.log(result);
+      $scope.rules = result;
+      $scope.newRule = '';
+    })
+    .error(function (data, status) {
+      console.log(data);
+    });
+};
+// html //
+&ltul>
+  &ltli ng-repeat="rule in rules">
+    {{ rule.RuleName }}
+  &lt/li>
+&lt/ul>
+</code></pre>
+<h3>Single page and hash</h3>
+<p>fragment identifier # - fundamental key for SPA</p>
+<pre><code>
+&lta href="#bookmark">Go To Bookmark&lta>
+</code></pre>
+<pre><code>
+window.addEventListener('hashchange', function() {
+  if (window.location.hash === '#/bookmark/1') {
+    console.log('Page 1 is cool.');
+  }
+  if (window.location.hash === '#/bookmark/2') {
+    console.log('Let me go get Page 2.');
+  }
+  if (window.location.hash === '#/bookmark/3') {
+    console.log('Here\'s Page 3.');
+  }
+});
+</code></pre>
+<h3>Routing, Templates and Controllers</h3>
 
 
 
