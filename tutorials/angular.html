@@ -187,11 +187,9 @@ $scope.addRule = function () {
 </code></pre>
 <h3>Single page and hash</h3>
 <p>fragment identifier # - fundamental key for SPA</p>
-<pre><code>
-&lta href="#bookmark">Go To Bookmark&lta>
+<pre><code>&lta href="#bookmark">Go To Bookmark&lta>
 </code></pre>
-<pre><code>
-window.addEventListener('hashchange', function() {
+<pre><code>window.addEventListener('hashchange', function() {
   if (window.location.hash === '#/bookmark/1') {
     console.log('Page 1 is cool.');
   }
@@ -204,7 +202,71 @@ window.addEventListener('hashchange', function() {
 });
 </code></pre>
 <h3>Routing, Templates and Controllers</h3>
+<p>Downloading a piece of page that we need at that moment</p>
+<p>ng-view - presents templates</p>
+<pre><code>var myApp = angular.module('myApp', ['ngRoute']);
 
+myApp.config(function ($routeProvider) {
+
+  $routeProvider
+    .when('/', {
+        templateUrl: 'pages/main.html',
+        controller: 'mainController'
+    })
+    .when('/second', {
+      templateUrl: 'pages/second.html',
+      controller: 'secondController'
+    })
+    .when('/second/:num', {
+      templateUrl: 'pages/second.html',
+      controller: 'secondController'
+    })
+});
+</code></pre>
+<p>$routeParams - matching pattern after ' : '</p>
+<pre><code>.when('/second/<strong>:num</strong>', {
+  templateUrl: 'pages/second.html',
+  controller: 'secondController'
+  })
+
+myApp.controller('secondController', ['$scope', '$log', '$routeParams', function($scope, $log, $routeParams) {
+  $scope.num = $routeParams.num || 1;
+</code></pre>
+
+<h3>Singleton</h3>
+<p>The one and only copy of an object</p>
+<p>AngulaJS services are implemented as singletons, except $scope.</p>
+<p>We can create service, singelton, a piece functionality or some data that we can share accros the pages.</p>
+
+<h3>Create a Service</h3>
+<p>Service is attached to myApp and contains name and function that hold objects, method and properties.</p>
+<pre><code>myApp.service('nameService', function() {
+	var self = this;
+	this.name = 'John Doe';
+	this.namelength = function() {
+		return self.name.length;
+	};
+});
+</code></pre>
+<h3>When we navigate page to page we are still inside the same javascript memory space.</h3>
+<p>we have all the variables, content and values even after navigate. Share content accross pages.</p>
+<pre><code>myApp.service('nameService', function() {
+	var self = this;
+	this.name = 'John Doe';
+	this.namelength = function() {
+		return self.name.length;
+	};
+});
+
+myApp.controller('mainController', ['$scope', '$log', 'nameService', function($scope, $log, nameService) {
+	$scope.name = nameService.name;
+	$scope.$watch('name', function() {
+		nameService.name = $scope.name;
+	});
+	$log.log(nameService.name);
+	$log.log(nameService.namelength());
+}]);
+</pre></code>
 
 
 
