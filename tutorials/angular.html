@@ -267,8 +267,77 @@ myApp.controller('mainController', ['$scope', '$log', 'nameService', function($s
 	$log.log(nameService.namelength());
 }]);
 </pre></code>
+<h3>Normalize</h3>
+<p>To make consistent to a standard</p>
+<p>Text normalization - making strings of text consistent to a standard</p>
+<pre><code>// html
+learn-and-understand
+// js
+learnAndUnderstand
+</code></pre>
 
+<h3>Directive</h3>
+<pre><code>// html
+&ltsearch-result>&lt/search-result> // E - ellement
+&ltdiv search-result>&lt/div> // A - attribute
+&ltdiv class="search-result">&lt/div> // C - class
+<-- directive: search-result --> // M - comment
+// js
+myApp.directive("searchResult", function() {
+ return {
+   restrict: 'AECM', // AE is default
+   template: '&lta href="#" class="list-group-item">&lth4 class="list-group-item-heading">Doe, John&lt/h4>&ltp class="list-group-item-text">555 Main St., New York, NY 11111&lt/p>&lt/a>',
+   // templateUrl: 'path/search.html'
+   replace: true
+ }
+});
+</code></pre>
+<h3>Directive - Isolated Scope</h3>
+<p>Empty object scope isolate main scope, to prevent chaning scope accidentally from the directives.</p>
+<pre><code>
+myApp.directive("searchResult", function() {
+ return {
+   restrict: 'AECM', // AE is default
+   templateUrl: 'path/search.html'
+   replace: true
+   scope: {
+     personName: "@" // text
+     personObject: "=" // two way binding, can pass object
+     formattedAddressFunction: "&" // function
+   }
+ }
+});
+// main.html
+&ltsearch-result person-name="{{ person.name }}">&lt/search-result>
+&ltsearch-result person-object="{{ person }} formatted-address-function="formattedAddress(aperson)"">&lt/search-result>
 
+// search.html
+&lth4 class="list-group-item-heading">{{ personName }}&lt/h4>
+&lth4 class="list-group-item-heading">{{ personObject.name }}&lt/h4>
+&ltp class="list-group-item-text">
+  {{ formattedAddressFunction({ aperson: personObject }) }}
+&lt/p>
+</code></pre>
+<h3>Compile & link - Directives</h3>
+<p>Control and cange directive, its placed inside directive</p>
+<pre><code>...
+  link: function(scope, elements, attrs) {
+  console.log('Linking...');
+  console.log(scope);
+
+  if (scope.personObject.name == 'Jane Doe') {
+    elements.removeAttr('class');
+  }
+  console.log(elements);
+}
+</code></pre>
+<h3>Translusion</h3>
+<p>Include one document inside another, place a copy of one document at a particular point inside another.</p>
+<p>If we put something inside element (custom, directive element), whole is replaced and override it.</p>
+<p>we use ng-translcude inside template</p>
+<pre><code>
+&ltsmall ng-transclude>&lt/small>
+</code></pre>
 
 <br>
     <div class="footer-tuts">
