@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../sass/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <title>AngularJS</title>
+
+    <style media="screen">
+
+    p {margin:0; padding:0; text-align: justify;}
+
+
+    </style>
+    <!-- <script src="../js/highlighter.js"></script> -->
+    <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+
+
+  <body>
+    <div class="wrapper-tuts">
+    <a href="top:" id="return-to-top"></a>
+    <a class="home-picture" href="../index.html"><img src="../images/home.png" alt="Home"></a>
+  <h1>Angular2</h1>
+  <h3>Services</h3>
+  <p>Refactoring data access to a separate service keeps the component lean and focused on supporting the view. It also makes it easier to unit test the component.</p>
+  <p>We can share that service with all components that need.</p>
+  <p>We imported the Angular Injectable function and applied that function as an @Injectable() decorator.</p>
+  <pre><code>// data.service.ts
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class OurService {
+  getdata(): void {}
+}</code></pre>
+<p>We could get data from anywhere. It could get the data from a web service or local storage or from a mock data source. That's the beauty of removing data access from the component. We can change our minds about the implementation as often as we like, for whatever reason, without touching any of the components.</p>
+
+<br>
+    <div class="footer-tuts">
+    | <a href="https://docs.angular.io">Reference</a> |
+    | <a href="https://www.youtube.com/watch?v=-zW1zHqsdyc" target="_blank"><img class="icons" src="../images/youtube.png" alt="youtube" /></a> |
+  </div>
+
+</div>
+  </body>
+  <script src="../js/scroll.js"></script>
+</html>
