@@ -26,7 +26,137 @@
     <a href="top:" id="return-to-top"></a>
     <a class="home-picture" href="../index.html"><img src="../images/home.png" alt="Home"></a>
   <h1>Angular2</h1>
-  <h3>Services</h3>
+  <h3>Style Guide</h3>
+  <h3>Naming</h3>
+  <p>Use dashes to separate words in the descriptive name.</p>
+  <p>Use dots to separate the descriptive name from the type.</p>
+  <p>Use upper camel case for class names and services.</p>
+  <pre><code>// hero-detail.component.ts
+@Component({ ... })
+export class HeroDetailComponent { }</code></pre>
+  <p>Use lower camel case for naming the selectors of directives.</p>
+  <pre><code>// app/shared/validate.directive.ts
+@Directive({
+  selector: '[tohValidate]'
+})
+export class ValidateDirective {}
+</code></pre>
+  <p>Use a hyphenated, lowercase element selector value (admin-user).</p>
+  <pre><code>// app/users/users.component.ts
+@Component({
+  selector: 'admin-users'
+})
+export class UsersComponent {}</code></pre>
+<p>Consider spelling const variables in lower camel case.</p>
+<pre><code>export const mockHeroes   = ['Sam', 'Jill'];</code></pre>
+<p>Do name an interface using upper camel case, </p>
+<pre><code>import { Injectable } from '@angular/core';
+import { Hero } from './hero.model';
+@Injectable()
+export class HeroCollectorService {
+  hero: Hero;
+  constructor() { }
+}</code></pre>
+<p>Do use lower camel case to name properties and methods.</p>
+<p>Do place properties up top followed by methods.</p>
+<p>Do place private members after public members, alphabetized.</p>
+<pre><code>private toastCount: number;
+
+hide() {
+    this.toastCount--;
+    this.log();
+  }</code></pre>
+<p>Do use dashed-case or kebab-case for naming the element selectors of components.</p>
+<pre><code>@Component({
+  selector: 'toh-hero-button',
+  templateUrl: 'hero-button.component.html'
+})
+export class HeroButtonComponent {}</code></pre>
+<p>Do extract templates and styles into a separate file, when more than 3 lines.</p>
+<p>Do use @Input and @Output instead of the inputs and outputs properties of the @Directive and @Component decorators:</p>
+<pre><code>@Component({
+  selector: 'toh-hero-button',
+  template: `&ltbutton&gt{{label}}&lt/button&gt`
+})
+export class HeroButtonComponent {
+  @Output() change = new EventEmitter&ltany&gt();
+  @Input() label: string;
+}</code></pre>
+<p>Put Logic in Services</p>
+<p>- Do limit logic in a component to only that required for the view. All other logic should be delegated to services.</p>
+<p>- Do move reusable logic to services and keep components simple and focused on their intended purpose.</p>
+
+  <h3>Modules</h3>
+  <p>Every Angular app has at least one Angular module class, the root module, conventionally named AppModule.</p>
+  <p>NgModule is a decorator function that takes a single metadata object whose properties describe the module.
+    The most important properties are:</p>
+  <pre><code>// app/app.module.ts
+  import { NgModule }      from '@angular/core';
+  import { BrowserModule } from '@angular/platform-browser';
+  @NgModule({
+    imports:      [ BrowserModule ],  // other modules whose exported classes are needed by component templates declared in this module.
+    providers:    [ Logger ], // collection of services they become accessible in all parts of the app
+    declarations: [ AppComponent ],
+    exports:      [ AppComponent ], //  the subset of declarations that should be visible and usable in the component templates of other modules.
+    bootstrap:    [ AppComponent ] // the main application view, called the root component, that hosts all other app views. Only the root module should set this bootstrap property.
+  })
+  export class AppModule { }</code></pre>
+  <h3>Components</h3>
+  <p>A component controls a patch of screen called a view.</p>
+  <p>We define a component's application logic—what it does to support the view—inside a class.
+    The class interacts with the view through an API of properties and methods.</p>
+  <p>Angular creates, updates, and destroys components as the user moves through the application.
+    Your app can take action at each moment in this lifecycle through optional lifecycle hooks.</p>
+  <h3>Templates</h3>
+  <p>We define a component's view with its companion template.
+    A template is a form of HTML that tells Angular how to render the component.</p>
+  <h3>Metadata</h3>
+  <p>Metadata tells Angular how to process a class.</p>
+  <p>In TypeScript, we attach metadata by using a decorator.</p>
+  <h3>The template, metadata, and component together describe a view.</h3>
+
+
+  <h3>HTML</h3>
+  <p> The &ltscript&gt element is a notable exception; it is forbidden, eliminating the risk of script injection attacks. (In practice,&ltscript&gt is simply ignored.)</p>
+  <p>The &lthtml&gt, &ltbody&gt, and &ltbase&gt elements have no useful role in our repertoire.</p>
+  <h3>Interpolation</h3>
+  <p>We use the double-curly braces of interpolation</p>
+  <p>The material between the braces is often the name of a component property. Angular replaces that name with the string value of the corresponding component property.</p>
+  <pre><code>&lth3&gt
+  {{title}}
+  &ltimg src="{{heroImageUrl}}" style="height:30px"&gt
+&lt/h3&gt</code></pre>
+  <p>More generally, the material between the braces is a template expression that Angular first evaluates and then converts to a string.</p>
+  <pre><code>// The sum of 1 + 1 is 2 //
+&ltp&gtThe sum of 1 + 1 is {{1 + 1}}&lt/p&gt</code></pre>
+  <p>Angular evaluates all expressions in double curly braces, converts the expression results to strings, and links them with neighboring literal strings.
+    Finally, it assigns this composite interpolated result to an element or directive property.</p>
+  <pre><code>// The sum of 1 + 1 is not 4 //
+&ltp&gtThe sum of 1 + 1 is not {{1 + 1 + getVal()}}&lt/p&gt</code></pre>
+<h3>Template expressions</h3>
+<p>A template expression produces a value. Angular executes the expression and assigns it to a property of a binding target;
+  the target might be an HTML element, a component, or a directive.</p>
+  <p>A template expression should not change any application state other than the value of the target property.</p>
+<p>Template expressions cannot refer to anything in the global namespace.</p>
+<p>QUICK EXECUTION -
+Angular executes template expressions more often than we think.
+They can be called after every keypress or mouse move.
+Expressions should finish quickly or the user experience may drag, especially on slower devices.
+Consider caching values computed from other values when the computation is expensive.</p>
+<p>Template binding works with properties and events, not attributes.</p>
+
+<h3>Property binding</h3>
+<p>We write a template property binding when we want to set a property of a view element to the value of a template expression.</p>
+<p>The most common property binding sets an element property to a component property value. An example is binding the src property of an image element to a component’s heroImageUrl property:</p>
+<pre><code>&ltimg [src]="heroImageUrl"&gt</code></pre>
+<p>Another example is disabling a button when the component says that it isUnchanged:</p>
+<pre><code>&ltbutton [disabled]="isUnchanged">Cancel is disabled&lt/button&gt</code></pre>
+<p>Another is setting a property of a directive:</p>
+<pre><code>&ltdiv [ngClass]="classes">[ngClass] binding to the classes property&lt/div&gt</code></pre>
+<p>Yet another is setting the model property of a custom component (a great way for parent and child components to communicate):</p>
+<pre><code>&lthero-detail [hero]="currentHero">&lt/hero-detail&gt</code></pre>
+
+<h3>Services</h3>
   <p>Refactoring data access to a separate service keeps the component lean and focused on supporting the view. It also makes it easier to unit test the component.</p>
   <p>We can share that service with all components that need.</p>
   <p>We imported the Angular Injectable function and applied that function as an @Injectable() decorator.</p>
