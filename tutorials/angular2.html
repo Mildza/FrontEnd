@@ -160,14 +160,62 @@ Consider caching values computed from other values when the computation is expen
   <p>Refactoring data access to a separate service keeps the component lean and focused on supporting the view. It also makes it easier to unit test the component.</p>
   <p>We can share that service with all components that need.</p>
   <p>We imported the Angular Injectable function and applied that function as an @Injectable() decorator.</p>
-  <pre><code>// data.service.ts
+  <p>We could get data from anywhere. It could get the data from a web service or local storage or from a mock data source. That's the beauty of removing data access from the component. We can change our minds about the implementation as often as we like, for whatever reason, without touching any of the components.</p>
+  <p>First we create a file where the name always stay .service.ts. (name.service.ts)</p>
+  <p>At the top of our services file,  we imported the Injectable member from the Angular Core library. Now we need to add the Injectable() decorator:</p>
+  <p>Finally, we create the class that contains the logic of our service:</p>
+  <pre><code>// example.service.ts
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class OurService {
-  getdata(): void {}
+export class ExampleService {
+
+    // This is where your methods and properties go, for example:
+
+    someMethod() {
+        return 'Hey!';
+    }
+
+}
+</code></pre>
+<p>We can either import your service directly within the components, or we can import them to the app.module.ts file, which will give all of your components access to that service.</p>
+<h4> Import the Service to our Component</h4>
+<p>Choose a component file and at the top, we must include the service member</p>
+<pre><code>// Choose a component file and at the top, we must include the service member
+import { Component } from '@angular/core';
+import { ExampleService } from './example.service';
+
+// We must add it to the providers array in the Component decorator metadata
+@Component({
+    selector: 'my-app',
+    template: '&lth1&gt{{ title }}&lt/h1&gt',
+    providers: [ExampleService]
+})
+
+export class AppComponent {
+
+    title: string;
+
+// In the constructor arguments of the component class, we include it through dependency injection:
+    constructor(private _exampleService: ExampleService) {
+
+    }
+//Now we can access the service's methods and properties by referencing the private _exampleService. For example:
+    ngOnInit() {
+        this.title = this._exampleService.someMethod();
+    }
 }</code></pre>
-<p>We could get data from anywhere. It could get the data from a web service or local storage or from a mock data source. That's the beauty of removing data access from the component. We can change our minds about the implementation as often as we like, for whatever reason, without touching any of the components.</p>
+<h4>Including the Service in app.module.ts</h4>
+<p>The only step that differs when including a service in the app.module.ts from including it in a specific component is that you're declaring the service in the providers property of the app.module.ts @NgModule metadata, as opposed to the @Component's meta data:</p>
+<pre><code>// other imports in app.module.ts
+import { ExampleService } from './example.service';
+
+
+@NgModule({
+  //other metadata properties
+  providers: [ExampleService]
+})</code></pre>
+<p>Now all Components within our application will have access to ExampleService. We no longer need to include ExampleService in a providers array within the component's metadata.  We do still need to import the ExampleService at the top of the components that we wish to use.</p>
 
 <br>
     <div class="footer-tuts">
