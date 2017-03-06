@@ -84,8 +84,8 @@ pre {
   white-space: pre-wrap;
   white-space: pre\9; }
 
-strong {
-  color: #3F51B5; }
+.blue {
+  color: #3498db; }
 
 .home-picture {
   position: absolute;
