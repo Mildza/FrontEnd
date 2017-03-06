@@ -96,7 +96,7 @@ export class HeroButtonComponent {
   @NgModule({
     imports:      [ BrowserModule ],  // other modules whose exported classes are needed by component templates declared in this module.
     providers:    [ Logger ], // collection of services they become accessible in all parts of the app
-    declarations: [ AppComponent ],
+    declarations: [ AppComponent ], declare components that belong to the root module
     exports:      [ AppComponent ], //  the subset of declarations that should be visible and usable in the component templates of other modules.
     bootstrap:    [ AppComponent ] // the main application view, called the root component, that hosts all other app views. Only the root module should set this bootstrap property.
   })

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../sass/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <title>NodeJS</title>
+
+    <style media="screen">
+
+    p {margin:0; padding:0; text-align: justify;}
+
+
+    </style>
+    <!-- <script src="../js/highlighter.js"></script> -->
+    <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+
+
+  <body>
+    <div class="wrapper-tuts">
+    <a href="top:" id="return-to-top"></a>
+    <a class="home-picture" href="../index.html"><img src="../images/home.png" alt="Home"></a>
+  <h1>NodeJS</h1>
+  <h3>Modules</h3>
+  <p>Good programmers devide their programs into modules.</p>
+  <p>Maintainabillity: Updating a single module is much easier when the module is decoupled from other pieces of code.</p>
+  <p>Namespacing: Sharing global variables between unrelated code is a big no-no in development.
+As we’ll see later in this post, modules allow us to avoid namespace pollution by creating a private space for our variables.</p>
+  <p>Reusability:  Let’s imagine we copied some utility methods we wrote from a previous project to our current project.
+That’s all well and good, but if we find a better way to write some part of that code we have to go back and remember to update it everywhere else we wrote it.</p>
+
+  <pre><code> // greet.js
+  var greet = function() {
+	console.log('Hello!');
+};
+
+module.exports = greet;
+
+// app.js
+var greet = require('./greet');
+greet();
+
+</code></pre>
+
+
+<br>
+    <div class="footer-tuts">
+    | <a href="https://nodejs.org/en/docs/guides/">Reference</a> |
+    | <a href="https://www.youtube.com/watch?v=QG1Kmv1qtu4" target="_blank"><img class="icons" src="../images/youtube.png" alt="youtube" /></a> |
+  </div>
+
+</div>
+  </body>
+  <script src="../js/scroll.js"></script>
+</html>
