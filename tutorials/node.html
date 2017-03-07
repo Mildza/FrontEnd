@@ -46,7 +46,42 @@ var greet = require('./greet');
 greet();
 
 </code></pre>
+<h3>Require</h3>
+<p>The keyword require returns an object, which references the value of module.exports for a given file.</p>
+<pre><code>// greet/greeting.js
+{
+    "en": "Hello",
+    "es": "Hola"
+}
+// greet/english.js
+var greetings = require('./greetings.json');
 
+var greet = function() {
+    console.log(greetings.en);
+}
+module.exports = greet;
+
+// greet/spanish.js
+var greet = function() {
+    console.log('Hola');
+}
+module.exports = greet;
+
+// greet/index.js
+var english = require('./english')
+var spanish = require('./spanish')
+
+module.exports = {
+    english: english,
+    spanish: spanish
+};
+
+//app.js
+var greet = require('./greet');
+
+greet.english(); // Hello
+greet.spanish(); // Hola
+</code></pre>
 
 <br>
     <div class="footer-tuts">
