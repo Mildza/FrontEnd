@@ -82,7 +82,36 @@ var greet = require('./greet');
 greet.english(); // Hello
 greet.spanish(); // Hola
 </code></pre>
+<p><strong>Revealing module pattern:</strong> Exposing only the properties and methods we want via an returned object.</p>
+<pre><code>// greet.js
+var greeting = 'Hello world!!!!';
 
+function greet() {
+	console.log(greeting);
+}
+
+module.exports = {
+	greet: greet
+
+// app.js
+var greet = require('./greet').greet;
+greet5();
+}
+</code></pre>
+<p>ECMA6 exports</p>
+<pre><code>// greet.js
+export function greet() {
+  console.log('Hello');
+}
+// app.js
+import * as greetr from 'greet';
+greetr.greet();
+</code></pre>
+<h3>Event and Event Emiiter</h3>
+<p>Event: Something that has happened in our app that we can respond to.</p>
+<p>System Events comes from C++ Core - libuv.</p>
+<p>Custom Events comes from Javascript Core - Event Emitter.</p>
+<p>Event Listener: The code that responds to an event - in JS it will be a function. We can have many listeners listening for the same event. </p>
 <br>
     <div class="footer-tuts">
     | <a href="https://nodejs.org/en/docs/guides/">Reference</a> |
