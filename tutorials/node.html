@@ -26,14 +26,17 @@
     <a href="top:" id="return-to-top"></a>
     <a class="home-picture" href="../index.html"><img src="../images/home.png" alt="Home"></a>
   <h1>NodeJS</h1>
+  <h3>BASICS</h3>
+  <p>V8 - JavaScript Engine - A program that converts JavaScript code into something the computer processor can understand.</p>
+  <p>V8 can run standalone, or can be embedded into any C++ aplication.</p>
   <h3>Modules</h3>
-  <p>Good programmers devide their programs into modules.</p>
+  <p>Reusable block of code whose existence does not accidentally impact other code.</p>
+  <p>CommonJS modules - An agreed upon standard for how modules should be structured.</p>
   <p><strong class="bl">Maintainabillity:</strong> Updating a single module is much easier when the module is decoupled from other pieces of code.</p>
   <p><strong class="bl">Namespacing:</strong> Sharing global variables between unrelated code is a big no-no in development.
 As we’ll see later in this post, modules allow us to avoid namespace pollution by creating a private space for our variables.</p>
   <p><strong class="bl">Reusability:</strong> Let’s imagine we copied some utility methods we wrote from a previous project to our current project.
 That’s all well and good, but if we find a better way to write some part of that code we have to go back and remember to update it everywhere else we wrote it.</p>
-
   <pre><code>// greet.js
 var greet = function() {
 console.log('Hello!');
@@ -47,7 +50,7 @@ greet();
 
 </code></pre>
 <h3>Require</h3>
-<p>The keyword require returns an object, which references the value of module.exports for a given file.</p>
+<p>Require is a function and returns an object, which references the value of module.exports for a given file.</p>
 <pre><code>// greet/greeting.js
 {
     "en": "Hello",
