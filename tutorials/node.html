@@ -50,8 +50,9 @@ greet();
 
 </code></pre>
 <h3>Require</h3>
-<p>Require is a function and returns an object, which references the value of module.exports for a given file.</p>
-<pre><code>// greet/greeting.js
+<p>Require is a function and returns an object, which references the value of module.exports for a given file.
+Module.exports is what the require function return.</p>
+<pre><code>// greet/greeting.json
 {
     "en": "Hello",
     "es": "Hola"
@@ -98,9 +99,10 @@ module.exports = {
 
 // app.js
 var greet = require('./greet').greet;
-greet5();
+greet();
 }
 </code></pre>
+<p>In JS when variable is set equile to a value, then its a new spot in a memory, new object.</p>
 <p>ECMA6 exports</p>
 <pre><code>// greet.js
 export function greet() {
