@@ -196,6 +196,17 @@ person.lastname = "Doe";</code></pre>
 <p>Computed and dot (always use dot) notation to find properties:</p>
 <pre><code>person["firstname"] = "John";
 person.firstname = "John";</code></pre>
+<p>Objects properties and methods</p>
+<pre><code>var object = {
+    greet: "hello"
+}
+
+console.log(object.greet)
+console.log(object['greet'])
+
+var prop = "greet"
+
+console.log(object[prop])</code></pre>
 <p>Constructor Pattern for Creating Objects</p>
 <pre><code>function Greet(firstName, lastName) {
   this.firstname = firstName;
@@ -255,7 +266,21 @@ log(function(){
 <pre><code>logGreeting(function(){
   console.log("Hi");
 });</code></pre>
+<p>Functions and arrays</p>
+<pre><code>var arr = []
 
+arr.push(function(){
+    console.log("Hello 1")
+})
+arr.push(function(){
+    console.log("Hello 2")
+})
+arr.push(function(){
+    console.log("Hello 3")
+})
+arr.forEach(function(item, index){
+    item()
+})</code></pre>
 <h3>Immediately Invoked Function Expressions - (IIFE)S</h3>
 <p>Run the function at point is created.</p>
 <pre><code>
@@ -338,6 +363,7 @@ greetEnglish('John', 'Doe'); // Hello John Doe
 greetSpanish('John', 'Doe'); // Hola John Doe</code></pre>
 <h3>Closure and Callback</h3>
 <p>Callback - Function you give to another function, to be run when the other function is finished.</p>
+<p>A function passed to some other function which we assume vill be invoked at the some point. Tfu functions 'calls back', invoking the function you give it when it is done doing its work.</p>
 <pre><code>function sayHiLater() {
   var greeting = 'Hi!';
   setTimeout(function() {
@@ -361,7 +387,18 @@ tellMeWhenDone(function() {
 tellMeWhenDone(function() {
   console.log('All done...');
 });</code></pre>
+<pre><code>function greet(callback) {
+  console.log('hello')
+  var data = {
+      name: "John"
+  }
+  callback(data)
+}
 
+greet(function(data) {
+    console.log('Somebody call me')
+    console.log(data.name)
+})</code></pre>
 <h3>This</h3>
 <p>Inside function this point to global, window object.</p>
 <p>Inside object this point to object, even if function inside object beacuse function inside object is a method.</p>
