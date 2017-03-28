@@ -301,6 +301,49 @@ readable.pipe(writable);
 readable.pipe(gzip).pipe(compressed);</code></pre>
 
 <h3>HTTP</h3>
+<p>Template: text designed to be the basic for final text or content after being processed.</p>
+<pre><code>var http = require('http')
+var fs = require('fs')
+
+http.createServer(function(req, res) {
+
+    res.writeHead(200, { 'Content-Type': 'text/html'})
+    var html = fs.readFileSync('./index.htm', 'utf8')
+    var message = 'Milan';
+    html = html.replace('{Message}', message)
+    res.end(html)
+
+}).listen(1337, '127.0.0.1')</pre></code>
+<p>Create a stream and pipe to res, Use streams wherever you can.</p>
+<pre><code>var http = require('http')
+var fs = require('fs')
+
+http.createServer(function(req, res) {
+
+    res.writeHead(200, { 'Content-Type': 'text/html'})
+    fs.createReadStream('./index.htm').pipe(res)
+
+}).listen(1337, '127.0.0.1')</code></pre>
+
+<p>API: a set of tools for building a software application, accept and send only data via HTTP and TCP/IP.</p>
+<p>Endpoint: one URL in a web API.</p>
+<pre><code>var http = require('http')
+var fs = require('fs')
+
+http.createServer(function(req, res) {
+
+    res.writeHead(200, { 'Content-Type': 'application/json'})
+    var obj = {
+        firstname: 'John',
+        lastname: 'Doe'
+    }
+    res.end(JSON.stringify(obj))
+
+}).listen(1337, '127.0.0.1') </code></pre>
+
+<h3>Routing</h3>
+<p>Mapping HTTP requests to content.</p>
+
 
 <br>
     <div class="footer-tuts">
